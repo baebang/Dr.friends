@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>main_screen</title>
+  <style>
+    body{
+      margin:0;
+    }
+    #top{
+      margin: 0;
+      padding: 0;
+      background-color: #DEEBF7;
+    }
+    #Dr{
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 0;
+      margin-left: 10px;
+      color: #4472C4;
+      font-family: serif;
+    }
+    #online{
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 0;
+      margin-left: 45px;
+      color: #767171;
+    }
+    #main_img{
+      margin-top: 35px;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .img .content{
+     position: absolute;
+     top:40%;
+     left:50%;
+     border-left: 5px solid #D0CECE;
+     transform: translate(-50%, -50%);                                                                   
+     font-size: large;
+     color: black;
+     z-index: 2;
+     text-align: left;
+     line-height: 0.7;
+    }
+    table{
+      text-align: center;
+      font-size: medium;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="top">
+    <h2 id="Dr">Dr.friends</h2>
+    <h6 id="online">ONLINE</h6>
+  </div>
+
+  <div class="img">
+    <img id="main_img"src="main_img.png">
+    <div class="content">
+      <h2>혼자 앓지 말고 질문해 보세요.</h2>
+      <h2>무엇이든 친절히 답해드립니다.</h2>
+      <h5>우리가 몸이 아프다는 신호를 보낼 때, 제일 먼저 하는 행동은 무엇일까요? 
+      </h5>
+      <h5>갑자기 어딘가 불편하면 대부분의 사람들은 바로 병원에 가기보다는 인터넷에 검색을 해봅니다. 
+      </h5>
+      <h6>특히 요즘같은 시기 기침을 하거나, 두통만 있어도 혹시나 하는 두려움에 자신의 증상에 대해 더욱 찾아볼 것입니다.
+      </h6>
+      <div style="position: absolute;"> 
+        <table style="position: relative;">
+          <tr>
+              <button type="button"  class="btn_btnEvent" onclick="login_confirm()"> 
+                <script>
+                  function login_confirm(){
+                    var confirm_test = confirm("로그인이 필요한 서비스입니다.\n'확인'을 누르면 로그인창으로 넘어갑니다.");
+                
+                    if ( confirm_test == true ) {
+                        // '확인' 버튼 클릭 시 로그인 창 이동
+                        location.replace('facebook_login.html');
+                    } else if ( confirm_test == false ) {
+                      // 메인화면으로 되돌아감
+                      location.replace('main_screen.html');
+                    }
+                  }
+                </script>
+                <td><a href="dignosis.html" target=_blank><img src="자가진단서비스.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"> </a></td>
+                <td><a href="search.html" target=_blank><img src="질병검색하기.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
+                <td><a href="nearby_hospitals.html" target=_blank><img src="주변병원검색.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
+                <td><a href="introduction.html" target=_blank><img src="홈페이지소개.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
+              </button>
+          </tr>
+          <tr>
+            <td>자가진단 서비스</td>
+            <td>질병 검색하기</td>
+            <td>주변병원 검색하기</td>
+            <td>홈페이지 소개</td>
+          </tr>
+        </table>
+        
+    </div>
+    </div>
+    <div class="img-cover"></div>
+  </div>
+  
+</body>
+</html>
