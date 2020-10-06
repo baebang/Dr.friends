@@ -49,11 +49,55 @@ head
     font-size: medium;
     margin-top: 10px;
     }
+  script.
+    // 로그인이 됬는지 안됬는지 로그인 상태를 리턴해줌
+    var checkLoginStatus = function(response){
+    console.log(response);
+    //statusChangeCallback(response);
+    if(response.status === 'connected'){
+    document.querySelector('#authBtn').value = 'Logout';
+    //로그인시 사용자 이름 표시
+    FB.api('/me', function(resp){
+    document.querySelector("#name").innerHTML = 'Welcome'+resp.name;
+    })
+    }else{
+    document.querySelector('#authBtn').value = 'Login';
+    document.querySelector("#name").innerHTML = ' ';
+    }
+    }
+    // SDK setting
+    window.fbAsyncInit = function() {
+    FB.init({
+    appId      : '622106171816292',
+    cookie     : true,                     // Enable cookies to allow the server to access the session.
+    xfbml      : true,                     // Parse social plugins on this webpage.
+    version    : 'v8.0'           // Use this Graph API version for this call.
+    });
+    FB.getLoginStatus(checkLoginStatus)
+    };
+  // load Facebook SDK
+  script(async='' defer='' crossorigin='anonymous' src='https://connect.facebook.net/en_US/sdk.js')
 #top
   h2#Dr Dr.friends
   h6#online ONLINE
+input#authBtn(type='button' value='checking...' onclick="\
+if(this.value === 'Login'){\
+//now logout \
+FB.login(function(res){\
+console.log('login =>', res);\
+checkLoginStatus(res);\
+});\
+}else{\
+//now login\
+FB.logout(function(res){\
+console.log('logout =>', res);\
+checkLoginStatus(res);\
+});\
+}\
+")
+span#name
 .img
-  img#main_img(src='..\images\main_img.png')
+  img#main_img(src='img_dignosis/main_img.png')
   .content
     h2 &#xD63C;&#xC790; &#xC553;&#xC9C0; &#xB9D0;&#xACE0; &#xC9C8;&#xBB38;&#xD574; &#xBCF4;&#xC138;&#xC694;.
     h2 &#xBB34;&#xC5C7;&#xC774;&#xB4E0; &#xCE5C;&#xC808;&#xD788; &#xB2F5;&#xD574;&#xB4DC;&#xB9BD;&#xB2C8;&#xB2E4;.
@@ -73,16 +117,16 @@ head
             }
           td
             a(href='dignosis.html' target='_blank')
-              img(src='..\images\자가진단서비스.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='img_dignosis/자가진단서비스.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='search.html' target='_blank')
-              img(src='..\images\질병검색하기.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='img_dignosis/질병검색하기.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='nearby_hospitals.html' target='_blank')
-              img(src='..\images\주변병원검색.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='img_dignosis/주변병원검색.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='introduction.html' target='_blank')
-              img(src='..\images\홈페이지소개.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='img_dignosis/홈페이지소개.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
         tr
           td &#xC790;&#xAC00;&#xC9C4;&#xB2E8; &#xC11C;&#xBE44;&#xC2A4;
           td &#xC9C8;&#xBCD1; &#xAC80;&#xC0C9;&#xD558;&#xAE30;
