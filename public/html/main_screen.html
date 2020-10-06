@@ -60,7 +60,7 @@
   </div>
 
   <div class="img">
-    <img id="main_img"src="main_img.png">
+    <img id="main_img"src="..\images\main_img.png">
     <div class="content">
       <h2>혼자 앓지 말고 질문해 보세요.</h2>
       <h2>무엇이든 친절히 답해드립니다.</h2>
@@ -73,24 +73,16 @@
       <div style="position: absolute;"> 
         <table style="position: relative;">
           <tr>
-              <button type="button"  class="btn_btnEvent" onclick="login_confirm()"> 
                 <script>
-                  function login_confirm(){
-                    var confirm_test = confirm("로그인이 필요한 서비스입니다.\n'확인'을 누르면 로그인창으로 넘어갑니다.");
-                
-                    if ( confirm_test == true ) {
-                        // '확인' 버튼 클릭 시 로그인 창 이동
-                        location.replace('facebook_login.html');
-                    } else if ( confirm_test == false ) {
-                      // 메인화면으로 되돌아감
-                      location.replace('main_screen.html');
-                    }
-                  }
+                  function login_alert(){
+                    alert("로그인이 필요한 서비스입니다.")
+                    location.href="main_screen.html"
+                  } 
                 </script>
-                <td><a href="dignosis.html" target=_blank><img src="자가진단서비스.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"> </a></td>
-                <td><a href="search.html" target=_blank><img src="질병검색하기.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
-                <td><a href="nearby_hospitals.html" target=_blank><img src="주변병원검색.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
-                <td><a href="introduction.html" target=_blank><img src="홈페이지소개.png" onclick="login_confirm();" style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
+                <td><a href="dignosis.html" target=_blank><img src="..\images\자가진단서비스.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"> </a></td>
+                <td><a href="search.html" target=_blank><img src="..\images\질병검색하기.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
+                <td><a href="nearby_hospitals.html" target=_blank><img src="..\images\주변병원검색.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
+                <td><a href="introduction.html" target=_blank><img src="..\images\홈페이지소개.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
               </button>
           </tr>
           <tr>

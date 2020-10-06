@@ -53,7 +53,7 @@ head
   h2#Dr Dr.friends
   h6#online ONLINE
 .img
-  img#main_img(src='img_dignosis/main_img.png')
+  img#main_img(src='..\images\main_img.png')
   .content
     h2 &#xD63C;&#xC790; &#xC553;&#xC9C0; &#xB9D0;&#xACE0; &#xC9C8;&#xBB38;&#xD574; &#xBCF4;&#xC138;&#xC694;.
     h2 &#xBB34;&#xC5C7;&#xC774;&#xB4E0; &#xCE5C;&#xC808;&#xD788; &#xB2F5;&#xD574;&#xB4DC;&#xB9BD;&#xB2C8;&#xB2E4;.
@@ -66,30 +66,23 @@ head
     div(style='position: absolute;')
       table(style='position: relative;')
         tr
-          button.btn_btnEvent(type='button' onclick='login_confirm()')
           script.
-            function login_confirm(){
-            var confirm_test = confirm("로그인이 필요한 서비스입니다.\\n'확인'을 누르면 로그인창으로 넘어갑니다.");
-            if ( confirm_test == true ) {
-            // '확인' 버튼 클릭 시 로그인 창 이동
-            location.replace('facebook_login.html');
-            } else if ( confirm_test == false ) {
-            // 메인화면으로 되돌아감
-            location.replace('main_screen.pug');
-            }
+            function login_alert(){
+            alert("로그인이 필요한 서비스입니다.")
+            location.href="main_screen.html"
             }
           td
-            a(href='dignosis.pug' target='_blank')
-              img(src='img_dignosis/자가진단서비스.png' onclick='login_confirm();' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+            a(href='dignosis.html' target='_blank')
+              img(src='..\images\자가진단서비스.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='search.html' target='_blank')
-              img(src='img_dignosis/질병검색하기.png' onclick='login_confirm();' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='..\images\질병검색하기.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='nearby_hospitals.html' target='_blank')
-              img(src='img_dignosis/주변병원검색.png' onclick='login_confirm();' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='..\images\주변병원검색.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='introduction.html' target='_blank')
-              img(src='img_dignosis/홈페이지소개.png' onclick='login_confirm();' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='..\images\홈페이지소개.png' onclick='login_alert()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
         tr
           td &#xC790;&#xAC00;&#xC9C4;&#xB2E8; &#xC11C;&#xBE44;&#xC2A4;
           td &#xC9C8;&#xBCD1; &#xAC80;&#xC0C9;&#xD558;&#xAE30;
