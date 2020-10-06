@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('main_screen', { title: '멍청이' });
 });
 
+
+
+router.get()
+
 module.exports = router;
