@@ -1,3 +1,4 @@
+const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 
@@ -10,10 +11,10 @@ router.get('/dignosis', function(req, res) {
   res.render('dignosis', { title: 'dignosis' });
 });
 
-router.get('/dignosis_headache.html.com', function(req, res) {
-  res.render('dignosis_headache', { title: 'headache' });
-});
 
+router.get('/dignosis/:dignosisId', function(req, res){
+  res.render('./dignosis/' + req.params.dignosisId, {title: 'hihi'})
+});
 
 
 
