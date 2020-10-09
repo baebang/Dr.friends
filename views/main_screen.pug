@@ -92,21 +92,7 @@ head
 #top
   h2#Dr Dr.friends
   h6#online ONLINE
-input#authBtn(type='button' value='checking...' onclick="\
-if(this.value === 'Login'){\
-//now logout \
-FB.login(function(res){\
-console.log('login =>', res);\
-checkLoginStatus(res);\
-});\
-}else{\
-//now login\
-FB.logout(function(res){\
-console.log('logout =>', res);\
-checkLoginStatus(res);\
-});\
-}\
-")
+input#authBtn(type='button' value='checking...' onclick="if(this.value === 'Login'){FB.login(function(res){console.log('login =>', res);checkLoginStatus(res);});}else{FB.logout(function(res){console.log('logout =>', res);checkLoginStatus(res);});}")
 span#name
 .img
   img#main_img(src='img_dignosis/main_img.png')
