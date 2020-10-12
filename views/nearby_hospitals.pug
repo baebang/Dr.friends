@@ -1,7 +1,5 @@
-//위 URL로 접속하면 됩니다.
-//http://localhost:4000/nearby_hospitals?type=PM9
-//http://localhost:4000/nearby_hospitals?type=HP8
-
+//http://localhost:3000/nearby_hospitals?type=PM9
+//http://localhost:3000/nearby_hospitals?type=HP8
 
 doctype 
 html
@@ -9,28 +7,32 @@ html
     title nearby_hospitals
     style.
       body{
-      margin: 0;
+      margin:12pt;
       }
       #top{
-      padding: 6pt;
+      position: fixed;
+      top: 0;
+      /* width: 100% */
+      left: 0;
+      right: 0;
+      padding: 0;
       background-color: #DEEBF7;
       }
       #Dr{
       padding: 0;
-      margin: 0 0 0 10px;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 0;
+      margin-left: 10px;
       color: #4472C4;
       font-family: serif;
-      font-weight: normal;
-      display: inline;
-      }
-      #friends{
-      color: #4472C4;
-      font-family: serif;
-      display: inline;
       }
       #online{
       padding: 0;
-      margin: 0 0 0 45px;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: 0;
+      margin-left: 45px;
       color: #767171;
       }
       .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
@@ -69,25 +71,24 @@ html
       #pagination {margin:10px auto;text-align: center;}
       #pagination a {display:inline-block;margin-right:10px;}
       #pagination .on {font-weight: bold; cursor: default;color:#777;}
-  body 
-    h2#Dr Dr.
-    h2#friends Friends
-    h5#online ONLINE
-
-    body(style='margin: 12pt')
+  #top
+    h2#Dr Dr.friends
+    h6#online ONLINE
+  body
+    body(style='margin:40pt 20pt')
       div(style='display:flex;')
-        div(style='flex-grow:3; text-align:center;')
+        div(style='flex-grow:1; text-align:center;')
           div(style='display:flex; flex-direction:column;')
             div(onclick=`window.location.href="/nearby_hospitals?type=PM9"`)
               img(src='images/자가진단서비스.png' alt='주변약국' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
-              h1 주변 약국
+              h2 주변 약국
             div
               img(src='images/자가진단서비스.png' alt='주변약국' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
-              h1 자가진단서비스
+              h2 자가진단서비스
         div(style='flex-grow:9;')
           .map_wrap
             #map(style='width:100%;height:100%;position:relative;overflow:hidden;')
-          script(type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=6eccea6f58cfb61bfab3568d7092cedf&libraries=services')
+          script(type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=6b162dbad02bd856bbfadd1321f26f91&libraries=services')
           script.
             //default value
             var lat = 37.566826;
