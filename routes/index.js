@@ -41,6 +41,10 @@ router.get('/introduction', function(req, res) {
   res.render('introduction', { title: 'introduction' });
 });
 
+router.get('/nearby_hospitals', function(req, res) {
+  res.render('nearby_hospitals', { title: 'nearby_hospitals' });
+});
+
 
 
 
