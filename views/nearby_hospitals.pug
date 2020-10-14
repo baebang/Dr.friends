@@ -18,23 +18,6 @@ html
       padding: 0;
       background-color: #DEEBF7;
       }
-      #Dr{
-      padding: 0;
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-right: 0;
-      margin-left: 10px;
-      color: #4472C4;
-      font-family: serif;
-      }
-      #online{
-      padding: 0;
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-right: 0;
-      margin-left: 45px;
-      color: #767171;
-      }
       .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
       .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
       .map_wrap {position:relative;width:100%;height:500px;}
@@ -72,22 +55,22 @@ html
       #pagination a {display:inline-block;margin-right:10px;}
       #pagination .on {font-weight: bold; cursor: default;color:#777;}
   #top
-    h2#Dr Dr.friends
-    h6#online ONLINE
+   a(href='/main_screen' target='_self')
+    img(src='img_dignosis/홈버튼.png' style='height: 60px;' onclick="location='main_screen.pug'")
   body
     body(style='margin:40pt 20pt')
       div(style='display:flex;')
         div(style='flex-grow:1; text-align:center;')
           div(style='display:flex; flex-direction:column;')
             div(onclick=`window.location.href="/nearby_hospitals?type=PM9"`)
-              img(src='images/자가진단서비스.png' alt='주변약국' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+              img(src='images/주변약국검색.png' alt='주변약국' style='width: 180px; height: 150px; padding: 30px 0 10px 20px; cursor:pointer;')
               h2 주변 약국
             div
               img(src='images/자가진단서비스.png' alt='주변약국' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
               h2 자가진단서비스
         div(style='flex-grow:9;')
           .map_wrap
-            #map(style='width:100%;height:100%;position:relative;overflow:hidden;')
+            #map(style='width:100%;height:100%; margin-top:50px;position:relative;overflow:hidden;')
           script(type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=6b162dbad02bd856bbfadd1321f26f91&libraries=services')
           script.
             //default value

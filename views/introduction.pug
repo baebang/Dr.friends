@@ -8,24 +8,6 @@ head
     #top{
     background-color: #DEEBF7;
     }
-    #Dr{
-    padding: 0;
-    margin: 0 0 0 10px;
-    color: #4472C4;
-    font-family: serif;
-    font-weight: normal;
-    display: inline;
-    }
-    #friends{
-    color: #4472C4;
-    font-family: serif;
-    display: inline;
-    }
-    #online{
-    padding: 0;
-    margin: 0 0 0 45px;
-    color: #767171;
-    }
     #div_logo{
     margin-top: 30px;
     margin-left: 500px;
@@ -50,9 +32,8 @@ head
     padding-right: 10px;
     }
 #top
-  h2#Dr Dr.
-  h2#friends Friends
-  h5#online ONLINE
+ a(href='/main_screen' target='_self')
+  img(src='img_dignosis/홈버튼.png' style='height: 60px;' onclick="location='main_screen.pug'")
 #div_logo
   img(src='img_dignosis/logo.png')
 p#intro
