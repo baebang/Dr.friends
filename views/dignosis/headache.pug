@@ -50,16 +50,26 @@ head
     margin-left: 350px;
     }
     #content{
-    width: 300px;
+    width: 600px;
     height: 300px;
-    position: relative;
-    text-align: center;
+    text-align: left;
     background-color: #DEEBF7;
     border-radius: 50px;
     padding-top: 15px;
+    padding: 30px 40px;
+    line-height: 100px;
     }
-    #inner_content{
-    postion: absolute;
+    #sympimg{
+    padding-right: 100px;
+    }
+    .question{
+    display: inline;
+    }
+    #submit{
+    background-color:#DEEBF7;
+    margin-left: 200px;
+    width: 100px;
+    border-radius: 10px;
     }
 body   
   #top
@@ -72,14 +82,26 @@ body
     tr
       img.bar(src='/img_dignosis/bar_right.png')
     tr
-      td
+      td#sympimg
         img.image(src='/img_dignosis/두통.png')
       td
         div#content
-          p= contents.symptom
-          p= contents.solution
-          p= contents.cause
-    
+          form#frm(action= "/dignosis/" + part + "/" + ++stage + "/-1", method="get")
+            -if (contents.length == 1)
+              p= contents[0].symptom
+            -else
+              -for (var x = 0; x < contents.length; x++)
+                input(type="radio", name="pre", id= x, value=x)
+                label(for="x")= contents[x].question
+                br
+
+            input#submit(type="submit", value="다음")
+
+
+ 
+          
+          
+
 
 
 
