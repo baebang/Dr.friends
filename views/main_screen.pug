@@ -98,24 +98,58 @@ span#name
             function login_check(){
             if(document.querySelector('#authBtn').value = 'Login'){
             alert("로그인이 필요한 서비스입니다.")
-            location.href="http://localhost:3000/"}
+            location.href="http://localhost:3000/"
+            }
             else{
               
             location.href= ".home_menu.td.img.src"
              }
             }
+
+            function login_check_dignosis(){
+            if(document.querySelector('#authBtn').value == 'Login'){
+              alert("로그인이 필요한 서비스입니다.")
+            location.href="http://localhost:3000/"
+            }
+            else{
+              
+            location.href= window.location.href="/dignosis"
+             }
+            }
+
+            function login_check_search(){
+            if(document.querySelector('#authBtn').value == 'Login'){
+              alert("로그인이 필요한 서비스입니다.")
+            location.href="http://localhost:3000/"
+            }
+            else{
+              
+            location.href= window.location.href="/search"
+             }
+            }
+
+            function login_check_near(){
+            if(document.querySelector('#authBtn').value == 'Login'){
+              alert("로그인이 필요한 서비스입니다.")
+            location.href="http://localhost:3000/"
+            }
+            else{
+              
+            location.href= window.location.href="/nearby_hospitals"
+             }
+            }
+
           td
-            a(href='/main_screen' target='_self')
-            img(src='img_dignosis/자가진단서비스.png' onclick='login_check()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+            img(src='img_dignosis/자가진단서비스.png' onclick='login_check_dignosis()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='/search' target='_self')
-            img(src='img_dignosis/질병검색하기.png' onclick='login_check()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+            img(src='img_dignosis/질병검색하기.png' onclick='login_check_search()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='/nearby_hospitals' target='_self')
-            img(src='img_dignosis/주변병원검색.png' onclick='login_check()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+            img(src='img_dignosis/주변병원검색.png' onclick='login_check_near()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='/introduction' target='_self')
-            img(src='img_dignosis/홈페이지소개.png' onclick='login_check()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+            img(src='img_dignosis/홈페이지소개.png' onclick='window.location.href="/introduction"' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
 
         tr
           td &#xC790;&#xAC00;&#xC9C4;&#xB2E8; &#xC11C;&#xBE44;&#xC2A4;
