@@ -1,6 +1,3 @@
-//위 URL로 접속하면 됩니다.
-//http://localhost:4000/nearby_hospitals?type=PM9
-//http://localhost:4000/nearby_hospitals?type=HP8
 doctype 
 html
   head
@@ -8,81 +5,33 @@ html
     style.
       body{
       margin: 0;
+      padding-top: 80pt;
       position: relative;
       }
       
       #top{
       position: fixed;
       left: 0; top:0; right:0;
-      height: 50px;
+      height: 60px;
       background-color: #DEEBF7;
       }
-      #Dr{
-      padding: 0;
-      margin: 0 0 0 10px;
-      color: #4472C4;
-      font-family: serif;
-      font-weight: normal;
-      display: inline;
-      }
-      #friends{
-      color: #4472C4;
-      font-family: serif;
-      display: inline;
-      }
-      #online{
-      padding: 0;
-      margin: 0 0 0 45px;
-      color: #767171;
-      }
-      #map{
-      top:40pt;
-      bottom:10pt;
-      }
-      img,h3{
-      position:relative;
-      top:55pt;
-      }
-      .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-      .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-      .map_wrap {position:relative;width:100%;height:500px;}
-      #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255);z-index: 1;font-size:12px;border-radius: 10px;}
-      .bg_white {background:#fff;}
-      #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
-      #menu_wrap .option{text-align: center;}
-      #menu_wrap .option p {margin:10px 0;}
-      #menu_wrap .option button {margin-left:5px;}
-      #placesList li {list-style: none;}
-      #placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
-      #placesList .item span {display: block;margin-top:4px;}
-      #placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-      #placesList .item .info{padding:10px 0 10px 55px;}
-      #placesList .info .gray {color:#8a8a8a;}
-      #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-      #placesList .info .tel {color:#009900;}
-      #placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
-      #placesList .item .marker_1 {background-position: 0 -10px;}
-      #placesList .item .marker_2 {background-position: 0 -56px;}
-      #placesList .item .marker_3 {background-position: 0 -102px}
-      #placesList .item .marker_4 {background-position: 0 -148px;}
-      #placesList .item .marker_5 {background-position: 0 -194px;}
-      #placesList .item .marker_6 {background-position: 0 -240px;}
-      #placesList .item .marker_7 {background-position: 0 -286px;}
-      #placesList .item .marker_8 {background-position: 0 -332px;}
-      #placesList .item .marker_9 {background-position: 0 -378px;}
-      #placesList .item .marker_10 {background-position: 0 -423px;}
-      #placesList .item .marker_11 {background-position: 0 -470px;}
-      #placesList .item .marker_12 {background-position: 0 -516px;}
-      #placesList .item .marker_13 {background-position: 0 -562px;}
-      #placesList .item .marker_14 {background-position: 0 -608px;}
-      #placesList .item .marker_15 {background-position: 0 -654px;}
-      #pagination {margin:10px auto;text-align: center;}
-      #pagination a {display:inline-block;margin-right:10px;}
-      #pagination .on {font-weight: bold; cursor: default;color:#777;}
+
+
+      .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+      .map_wrap {position:relative;width:100%;height:350px;}
+      .placeinfo_wrap {position:absolute;bottom:28px;left:-150px;width:300px;}
+      .placeinfo {position:relative;width:100%;border-radius:6px;border: 1px solid #ccc;border-bottom:2px solid #ddd;padding-bottom: 10px;background: #fff;}
+      .placeinfo:nth-of-type(n) {border:0; box-shadow:0px 1px 2px #888;}
+      .placeinfo_wrap .after {content:'';position:relative;margin-left:-12px;left:50%;width:22px;height:12px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+      .placeinfo a, .placeinfo a:hover, .placeinfo a:active{color:#fff;text-decoration: none;}
+      .placeinfo a, .placeinfo span {display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+      .placeinfo span {margin:5px 5px 0 5px;cursor: default;font-size:13px;}
+      .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #003366;background: #003366 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+      .placeinfo .tel {color:#0f7833;}
+      .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
   #top 
-    h2#Dr Dr.
-    h2#friends Friends
-    h5#online ONLINE
+    a(href="http://localhost:3000/" target='_self')
+      img(src='img_dignosis/홈버튼.png', height='60px')
 
 
 body
@@ -90,74 +39,185 @@ body
       div(style='display:flex;')
         div(style='flex-grow:1; text-align:center;')
           div(style='display:flex; flex-direction:column;')
-            div(onclick=`window.location.href="/nearby_hospitals?type=PM9"`)
+            div#pm(onclick=`window.location.href="/nearby_hospitals?type=PM9"`)
               img(src='images/주변병원검색.png' alt='주변약국' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
               h3 주변 약국 확인
+            div#hp(onclick=`window.location.href="/nearby_hospitals?type=HP8"`)
+              img(src='images/주변병원검색.png' alt='주변병원' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
+              h3 주변 병원 확인
             div(onclick='window.location.href="/dignosis"')
               img(src='images/자가진단서비스.png' alt='주변약국' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
               h3 자가진단서비스
-            div(onclick=`window.location.href="/nearby_hospitals?type=HP8"`)
-              img(src='images/주변병원검색.png' alt='주변병원' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
-              h3 주변 병원 확인
             
         div(style='flex-grow:9;')
           .map_wrap
-            #map(style='width:100%;height:100%;position:relative;overflow:hidden;')
-          script(type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=6b162dbad02bd856bbfadd1321f26f91&libraries=services')
-          script.
-            //default value
-            var lat = 37.566826;
-            var lng = 126.9786567;
-            // 마커를 담을 배열입니다
-            navigator.geolocation.getCurrentPosition((position) => {
-              lat = position.coords.latitude;
-              lng = position.coords.longitude;
-               // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-              var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-              var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-              mapOption = {
-                center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
-                level: 5 // 지도의 확대 레벨
-              };
-              // 지도를 생성합니다
-              var map = new kakao.maps.Map(mapContainer, mapOption);
-              // 장소 검색 객체를 생성합니다
-              var ps = new kakao.maps.services.Places(map);
+            #map(style='width:95%;height:120%;position:relative;overflow:hidden;')
+        script(type='text/javascript' src='//dapi.kakao.com/v2/maps/sdk.js?appkey=6b162dbad02bd856bbfadd1321f26f91&libraries=services')
+        script.
+          //default value
+          var lat = 37.566826;
+          var lng = 126.9786567;
 
-              var type = 'HP8';
-              let search = window.location.search;
-              let params = new URLSearchParams(search);
-              if(params.get('type') != null){
-                console.log(params.get('type'));
-                type = params.get('type');
+          //url에 뭐가 있는지 찾기
+          let search = window.location.search;
+          let params = new URLSearchParams(search);
+
+          //url param 에 아무것도 없을 때를 대비해서 HP8 등록
+          var type = 'HP8'
+          
+          //type에 뭐가 있으면 그 값을 type에 넣어줌!
+          if(params.get('type') != null){
+            type = params.get('type');
+          }
+          //만약 타입이 hp8( 병원 ) 이면  병원 버튼 display를 none (안보임) 으로 바꿔줌!
+          if(type === 'HP8'){
+            var hp = document.getElementById('hp');
+            hp.style.display='none'
+          }
+          //만약 타입이 pm9( 약국 ) 이면 약국 버튼을 display를 none (안보임) 으로 바꿔줌
+          if(type === 'PM9'){
+            var pm  = document.getElementById('pm');
+            pm.style.display='none'
+          }
+          
+          // 마커를 담을 배열입니다
+          navigator.geolocation.getCurrentPosition((position) => {
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+              // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+            var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
+              contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
+              markers = [], // 마커를 담을 배열입니다
+              currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+            mapOption = {
+              center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
+              level: 5 // 지도의 확대 레벨
+            };
+            // 지도를 생성합니다
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+            // 장소 검색 객체를 생성합니다
+            var ps = new kakao.maps.services.Places(map);
+
+            // 커스텀 오버레이 컨텐츠를 설정합니다
+            placeOverlay.setContent(contentNode);  
+
+
+            // 엘리먼트에 이벤트 핸들러를 등록하는 함수입니다
+            function addEventHandle(target, _type, callback) {
+              if (target.addEventListener) {
+                  target.addEventListener(_type, callback);
+              } else {
+                  target.attachEvent('on' + _type, callback);
               }
-              // 카테고리로 은행을 검색합니다
-              ps.categorySearch(type, placesSearchCB, {useMapBounds:true});
-              // 키워드 검색 완료 시 호출되는 콜백함수 입니다
-              function placesSearchCB (data, status, pagination) {
+            }
+
+            // 카테고리 검색을 요청하는 함수입니다
+            function searchPlaces() {
+              if (!type) {
+                  return;
+              }
+              
+              // 커스텀 오버레이를 숨깁니다 
+              placeOverlay.setMap(null);
+
+              // 지도에 표시되고 있는 마커를 제거합니다
+              removeMarker();
+              ps.categorySearch(type, placesSearchCB, {useMapBounds:true}); 
+            }
+
+            searchPlaces()
+
+            // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+            function placesSearchCB(data, status, pagination) {
                 if (status === kakao.maps.services.Status.OK) {
-                  for (var i=0; i<data.length; i++) {
-                    displayMarker(data[i]);
-                  }
+                    // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
+                    console.log(data);
+                    displayPlaces(data);
+                } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+                    // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
+                    console.log("?!?!?")
+                } else if (status === kakao.maps.services.Status.ERROR) {
+                    // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
+                    console.log("?!?!?!?!?!?!?!?")
                 }
-              }
-              // 지도에 마커를 표시하는 함수입니다
-              function displayMarker(place) {
-              // 마커를 생성하고 지도에 표시합니다
+            }
+
+            // 지도에 마커를 표출하는 함수입니다
+            function displayPlaces(places) {
+
+                // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
+                // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
+              var order = document;
+
+              for ( var i=0; i<places.length; i++ ) {
+                // 마커를 생성하고 지도에 표시합니다
+                //var marker = addMarker(new kakao.maps.LatLng(places[i].y, places[i].x), order);
                 var marker = new kakao.maps.Marker({
-                  map: map,
-                  position: new kakao.maps.LatLng(place.y, place.x)
+                    map: map,
+                    position: new kakao.maps.LatLng(places[i].y, places[i].x) 
                 });
-                // 마커에 클릭이벤트를 등록합니다
-                kakao.maps.event.addListener(marker, 'click', function() {
-                  // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-                  infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-                  infowindow.open(map, marker);
-                });
+
+                // 마커와 검색결과 항목을 클릭 했을 때
+                // 장소정보를 표출하도록 클릭 이벤트를 등록합니다
+                (function(marker, place) {
+                    kakao.maps.event.addListener(marker, 'click', function() {
+                      console.log(place);
+                      displayPlaceInfo(place);
+                    });
+                })(marker, places[i]);
               }
-            }, failure => {
-              alert("위치정보가 허가되지 않았습니다.")
-              if (failure.message.startsWith("Only secure origins are allowed")) {
-                // Secure Origin issue.
-              }
-            }); 
+            }
+
+            // 지도 위에 표시되고 있는 마커를 모두 제거합니다
+            function removeMarker() {
+                for ( var i = 0; i < markers.length; i++ ) {
+                    markers[i].setMap(null);
+                }   
+                markers = [];
+            }
+
+            // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
+            function displayPlaceInfo (place) {
+                var content = '<div class="placeinfo">' +
+                                '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
+
+                if (place.road_address_name) {
+                    content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
+                                '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
+                }  else {
+                    content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
+                }                
+              
+                content += '    <span class="tel">' + place.phone + '</span>' + 
+                            '</div>' + 
+                            '<div class="after"></div>';
+
+                contentNode.innerHTML = content;
+                placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
+                placeOverlay.setMap(map);  
+            }
+
+
+
+            // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
+            function changeCategoryClass(el) {
+                var category = document.getElementById('category'),
+                    children = category.children,
+                    i;
+
+                for ( i=0; i<children.length; i++ ) {
+                    children[i].className = '';
+                }
+
+                if (el) {
+                    el.className = 'on';
+                } 
+            } 
+
+          }, failure => {
+            alert("위치정보가 허가되지 않았습니다.")
+            if (failure.message.startsWith("Only secure origins are allowed")) {
+              // Secure Origin issue.
+            }
+          });
