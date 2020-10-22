@@ -102,6 +102,43 @@ router.get('/eyeball/:stageId/:preqid', function(req, res){
   }
 });
 
+router.get('/menstyalpain/:stageId/:preqid', function(req, res){
+  var stageid = req.params.stageId;
+  var preqid;
+  var pre = req.query.pre;
+  if (pre == undefined) {
+    if(stageid !=1){
+      stageid -= 1;
+      preqid = req.params.preqId;
+      var sql = 'SELECT * from mens_q WHERE stage=' + stageid;
+      conn.query(sql, function(err, rows, fields){
+        console.log(rows);
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('./dignosis/menstyalpain' , {contents : rows, part : "eyeball", stage : stageid});
+      });
+    }else{
+      preqid = req.params.preqId;
+      var sql = 'SELECT * from mens_q WHERE stage= 1';
+      conn.query(sql, function(err, rows, fields){
+        console.log(rows);
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('./dignosis/menstyalpain' , {contents : rows, part : "eyeball", stage : stageid});
+      });
+    }
+  }else{
+    preqid = pre;
+    console.log("preqid:" + preqid);
+    console.log(stageid);
+    var sql = 'SELECT * from mens_q WHERE pre_q =? and stage ='+stageid;
+    conn.query(sql, preqid, function(err, rows, fields){
+      console.log(rows);
+      if(err) console.log('query is not excuted. insert fail...\n' + err);
+      else res.render('./dignosis/menstyalpain', {contents : rows, part : "eyeball", stage : stageid});   
+    });
+  }
+});
+
+
 router.get('/search', function(req, res) {
   res.render('search', { title: 'search' });
 });

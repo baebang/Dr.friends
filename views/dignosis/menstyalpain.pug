@@ -1,6 +1,6 @@
 doctype html
 head
-  title menstyalpain
+  title headache
   style.
     body{
     margin: 0;
@@ -49,18 +49,59 @@ head
     margin-top: -180px;
     margin-left: 350px;
     }
-#top
-  h2#Dr Dr.
-  h2#friends Friends
-  h5#online ONLINE
-table
-  tr
-    h2#dignosis_title menstyalpain
-  tr
-    img.bar(src='/img_dignosis/bar_right.png')
-  tr
-    td
-      img.image(src='/img_dignosis/생리통.png')
-  tr
-    td
-      img.figure(src='/img_dignosis/figure.png')
+    #content{
+    text-align: left;
+    background-color: #DEEBF7;
+    border-radius: 50px;
+    padding-top: 15px;
+    padding: 30px 40px;
+    line-height: 100px;
+    }
+    #sympimg{
+    padding-right: 100px;
+    }
+    .question{
+    display: inline;
+    }
+    #submit{
+    background-color:#DEEBF7;
+    margin-left: 200px;
+    width: 100px;
+    border-radius: 10px;
+    }
+body   
+  #top
+    h2#Dr Dr.
+    h2#friends Friends
+    h5#online ONLINE
+  table
+    tr
+      h2#dignosis_title menstyalpain
+    tr
+      img.bar(src='/img_dignosis/bar_right.png')
+    tr
+      td#sympimg
+        img.image(src='/img_dignosis/생리통.png')
+      td
+        div#content
+          form#frm(action= "/menstyalpain/" + ++stage + "/-1", method="get")
+            -if (contents.length == 1)
+              p= contents[0].symptom
+            -else
+              -for (var x = 0; x < contents.length; x++)
+                input(type="radio", name="pre", id= x, value=contents[x].question)
+                label(for="x")= contents[x].question
+                br
+              input#submit(type="submit", value="다음")
+
+
+
+
+ 
+          
+          
+
+
+
+
+
