@@ -26,26 +26,37 @@ router.get('/dignosis/:dignosisId/:stageId/:preqid', function(req, res){
   var stageid = req.params.stageId;
   var preqid;
   var pre = req.query.pre;
-  console.log(prestageqId);
-  // console.log(dignosisid);
-  // console.log(stageid);
+  console.log(dignosisid);
   if (pre == undefined) {
-    preqid = req.params.preqId;
-    var sql = 'SELECT * from question WHERE stage= 1';
-    conn.query(sql, function(err, rows, fields){
-      console.log(rows);
-      prestageqId = -1;
-      console.log(prestageqId);
-      if(err) console.log('query is not excuted. insert fail...\n' + err);
-      else res.render('./dignosis/' + dignosisid , {contents : rows, part : dignosisid, stage : stageid});
-    });
+    if(stageid !=1){
+      stageid -= 1;
+      preqid = req.params.preqId;
+      var sql = 'SELECT * from question WHERE part =? and stage=' + stageid;
+      conn.query(sql, dignosisid, function(err, rows, fields){
+        console.log(rows);
+        prestageqId = -1;
+        console.log(prestageqId);
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('./dignosis/' + dignosisid , {contents : rows, part : dignosisid, stage : stageid});
+      });
+    }else{
+      preqid = req.params.preqId;
+      var sql = 'SELECT * from question WHERE part =? and stage= 1';
+      conn.query(sql, dignosisid, function(err, rows, fields){
+        console.log(rows);
+        prestageqId = -1;
+        console.log(prestageqId);
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('./dignosis/' + dignosisid , {contents : rows, part : dignosisid, stage : stageid});
+      });
+    }
   }else{
     preqid = pre;
     console.log("preqid:" + preqid);
     console.log("prestageqid:" + prestageqId);
-    var sql = 'SELECT * from question WHERE pre_q =' + preqid + ' and stage = ' + stageid + ' and prestage_q= ' + prestageqId;
+    var sql = 'SELECT * from question WHERE part =? and pre_q =' + preqid + ' and stage =' + stageid + ' and prestage_q=' + prestageqId;
     prestageqId= preqid;
-    conn.query(sql, function(err, rows, fields){
+    conn.query(sql, dignosisid, function(err, rows, fields){
       console.log(rows);
       if(err) console.log('query is not excuted. insert fail...\n' + err);
       else res.render('./dignosis/' + dignosisid , {contents : rows, part : dignosisid, stage : stageid});   
@@ -53,6 +64,43 @@ router.get('/dignosis/:dignosisId/:stageId/:preqid', function(req, res){
   }
 });
 
+
+
+router.get('/eyeball/:stageId/:preqid', function(req, res){
+  var stageid = req.params.stageId;
+  var preqid;
+  var pre = req.query.pre;
+  if (pre == undefined) {
+    if(stageid !=1){
+      stageid -= 1;
+      preqid = req.params.preqId;
+      var sql = 'SELECT * from ques WHERE stage=' + stageid;
+      conn.query(sql, function(err, rows, fields){
+        console.log(rows);
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('./dignosis/eyeball' , {contents : rows, part : "eyeball", stage : stageid});
+      });
+    }else{
+      preqid = req.params.preqId;
+      var sql = 'SELECT * from ques WHERE stage= 1';
+      conn.query(sql, function(err, rows, fields){
+        console.log(rows);
+        if(err) console.log('query is not excuted. insert fail...\n' + err);
+        else res.render('./dignosis/eyeball' , {contents : rows, part : "eyeball", stage : stageid});
+      });
+    }
+  }else{
+    preqid = pre;
+    console.log("preqid:" + preqid);
+    console.log(stageid);
+    var sql = 'SELECT * from ques WHERE pre_q =? and stage ='+stageid;
+    conn.query(sql, preqid, function(err, rows, fields){
+      console.log(rows);
+      if(err) console.log('query is not excuted. insert fail...\n' + err);
+      else res.render('./dignosis/eyeball', {contents : rows, part : "eyeball", stage : stageid});   
+    });
+  }
+});
 
 router.get('/search', function(req, res) {
   res.render('search', { title: 'search' });

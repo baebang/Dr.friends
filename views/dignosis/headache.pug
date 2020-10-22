@@ -50,8 +50,6 @@ head
     margin-left: 350px;
     }
     #content{
-    width: 600px;
-    height: 300px;
     text-align: left;
     background-color: #DEEBF7;
     border-radius: 50px;
@@ -78,7 +76,7 @@ body
     h5#online ONLINE
   table
     tr
-      h2#dignosis_title headache
+      h2#dignosis_title headache 
     tr
       img.bar(src='/img_dignosis/bar_right.png')
     tr
@@ -94,8 +92,9 @@ body
                 input(type="radio", name="pre", id= x, value=x)
                 label(for="x")= contents[x].question
                 br
+              input#submit(type="submit", value="다음")
 
-            input#submit(type="submit", value="다음")
+
 
 
  
