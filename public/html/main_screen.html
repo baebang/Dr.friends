@@ -59,7 +59,7 @@
       background-color: #4472C4;
       color: ivory;
       font-size: medium;
-      border-radius: 10%;
+      border-radius: 20px;
       border: 1px solid navy;
     }
   </style>
@@ -98,7 +98,7 @@
 </head>
 <body>
   <div id="top">
-    <img id="home" src="..\images\홈버튼.png">
+    <a href="main_screen.html"><img id="home" src="..\images\홈버튼.png" ></a>
   </div>
   <input type="button" id="authBtn" value="checking..." onclick="
     if(this.value === 'Login'){
@@ -130,18 +130,22 @@
       </h6>
       <div style="position: absolute;"> 
         <table style="position: relative;">
-          <tr>
+          <tr class="home_menu">
                 <script>
-                    function login_alert(){
-                    alert("로그인이 필요한 서비스입니다.")
-                    location.href="main_screen.html"
-                  } 
+                  function login_check(){
+                    if(document.querySelector('#authBtn').value = 'Login'){
+                      alert("로그인이 필요한 서비스입니다.")
+                      location.href="main_screen.html"}
+                    else{
+                      location.href= ".home_menu.href"
+                    }
+                  }
+                  
                 </script>
-                <td><a href="dignosis.html" target=_self><img src="..\images\자가진단서비스.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"> </a></td>
-                <td><a href="search.html" target=_self><img src="..\images\질병검색하기.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
-                <td><a href="nearby_hospitals.html" target=_self><img src="..\images\주변병원검색.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
-                <td><a href="introduction.html" target=_self><img src="..\images\홈페이지소개.png" onclick=login_alert() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></a></td>
-              </button>
+                <td><a href="main_screen.html" target=_self></a><img src="..\images\자가진단서비스.png" onclick=login_check() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></td>
+                <td><a href="search.html" target=_self ></a><img src="..\images\질병검색하기.png" onclick=login_check() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></td>
+                <td><a href="nearby_hospitals.html" target=_self></a><img src="..\images\주변병원검색.png" onclick=login_check() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></td>
+                <td><a href="introduction.html" target=_self></a><img src="..\images\홈페이지소개.png" onclick=login_check() style="width: 150px; height: 150px; padding: 10px; cursor:pointer;"></td>
           </tr>
           <tr>
             <td>자가진단 서비스</td>
