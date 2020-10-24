@@ -69,6 +69,19 @@ head
     width: 100px;
     border-radius: 10px;
     }
+    .contents{
+      background-color: #DEEBF7;
+      width: 400px;
+      height: auto;
+      border-radius: 25px;
+      text-align: center;
+      padding: 10px;
+      margin: 10px;
+    }
+    #symptom{
+      margin-left: 30px;
+    }
+
 body   
   #top
     h2#Dr Dr.
@@ -76,23 +89,32 @@ body
     h5#online ONLINE
   table
     tr
-      h2#dignosis_title dermatistic
+      h2#dignosis_title Search Results
     tr
       img.bar(src='/img_dignosis/bar_right.png')
     tr
-      td#sympimg
-        img.image(src='/img_dignosis/피부.png')
+      h2#symptom=result[0].symptom
+    tr
       td
-        div#content
-          form#frm(action= "/dignosis/" + part + "/" + ++stage + "/-1", method="get")
-            -if (contents.length == 1)
-              p= contents[0].symptom
-            -else
-              -for (var x = 0; x < contents.length; x++)
-                input(type="radio", name="pre", id= x, value=x)
-                label(for="x")= contents[x].question
-                br
-              input#submit(type="submit", value="다음")
+        div.contents
+          h2 cause
+          p=result[0].cause
+      td
+        div.contents
+          h2 solution
+          -if (result[0].solution != null)
+            p=result[0].solution
+          -else
+            p 해당 질병의 solution에 대한 정보가 부족해 제공하지 못하는 점 이해 바랍니다.
+      td
+        div.contents
+          h2 preventive method
+          -if (result[0].prevention != '')
+            p=result[0].prevention
+          -else
+            p 해당 질병의 예방법에 대한 정보가 부족해 정보를 제공하지 못하는 점 이해 바랍니다.
+          
+ 
 
 
 

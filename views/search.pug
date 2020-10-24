@@ -48,15 +48,16 @@ head
     margin:0 0 0 150px;
     font-weight: normal;
     }
-    input[type="search"]{
+    input[type="text"]{
     width: 650px; height: 40px;
     margin: 0 0 5px 360px;
     border-radius: 25px 0 0 25px;
     }
-    button{
-    border-radius: 0 25px 25px 0;
-    padding: 5px;
-    margin: -2px;
+    input[type="submit"]{
+      height: 46px;
+      width: 55px;
+      border-radius: 0 25px 25px 0;
+      margin-left: -2px
     }
 #top
  a(href="http://localhost:3000/" target='_self')
@@ -66,6 +67,14 @@ head
   h1#title_friends.friends Friends
   h3#title_online.online ONLINE
 #search_bar
-  input(type='search')
-  button
-    img(src='search.png', width='30px', height='30px')
+  div#search_bar
+  form#frm(action="/dignosis/search_result", method="get")
+    input(type='text' name="search")
+    input(type='submit' value="search")
+
+
+ 
+  
+  
+
+
