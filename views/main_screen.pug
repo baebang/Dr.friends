@@ -54,7 +54,7 @@ head
     document.querySelector('#authBtn').value = 'Logout';
     //로그인시 사용자 이름 표시
     FB.api('/me', function(resp){
-    document.querySelector("#name").innerHTML = 'Welcome'+resp.name;
+    document.querySelector("#name").innerHTML = ' Welcome '+resp.name;
     })
     }else{
     document.querySelector('#authBtn').value = 'Login';
