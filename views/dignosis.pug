@@ -8,6 +8,24 @@ head
     #top{
     background-color: #DEEBF7;
     }
+    #Dr{
+    padding: 0;
+    margin: 0 0 0 10px;
+    color: #4472C4;
+    font-family: serif;
+    font-weight: normal;
+    display: inline;
+    }
+    #friends{
+    color: #4472C4;
+    font-family: serif;
+    display: inline;
+    }
+    #online{
+    padding: 0;
+    margin: 0 0 0 45px;
+    color: #767171;
+    }
     #dignosis_title{
     font-style: italic;
     font-family: serif;
@@ -33,36 +51,35 @@ head
     padding-top: 0;
     }
 #top
- a(href="http://localhost:3000/" target='_self')
-  img(src='img_dignosis/홈버튼.png', height= '60px')
+  h2#Dr Dr.
+  h2#friends Friends
+  h5#online ONLINE
 div
   h2#dignosis_title Dignosis
 table
   tr
     td
-      a(href='/dignosis/cold/1/-1')
-        img.image#cold(src='img_dignosis/감기.png')
+      a(href='dignosis_cold.html' target='_blank')
+        img.image(src='img_dignosis/감기.png')
     td
-      a(href='/eyeball/1/-1')
+      a(href='dignosis_eyeball.html' target='_blank')
         img.image(src='img_dignosis/눈.png')
     td
-      a(href='/dignosis/headache/1/-1')
+      a(href='dignosis_headache.html' target='_blank')
         img.image(src='img_dignosis/두통.png')
-  
-     
   tr
     td.part &#xAC10;&#xAE30;
     td.part &#xB208;
     td.part &#xB450;&#xD1B5;
   tr
     td
-      a(href='/dignosis/colic/1/-1')
+      a(href='dignosis_colic.html' target='_blank')
         img.image(src='img_dignosis/복통.png')
     td
-      a(href='/menstyalpain/1/-1')   
+      a(href='dignosis_menstyalpain.html' target='_blank')
         img.image(src='img_dignosis/생리통.png')
     td
-      a(href='/dignosis/dermatistic/1/-1')
+      a(href='dignosis_dermatitis.html' target='_blank')
         img.image(src='img_dignosis/피부.png')
   tr
     td.part &#xBCF5;&#xD1B5;
