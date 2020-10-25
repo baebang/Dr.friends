@@ -151,6 +151,20 @@ router.get('/dignosis/search_result', function(req, res) {
 
 });
 
+router.get('/dignosis/msearch_result', function(req, res) {
+  var search = req.query.search;
+  console.log(search);
+  var sql = 'SELECT * from medicine WHERE name=?';
+  
+ conn.query(sql, search, function(err, rows, fields){
+   console.log(rows);
+   if(err) console.log('query is not excuted. insert fail...\n' + err);
+   else res.render('msearch_result' , {result : rows});
+ })
+
+});
+
+
 
 router.get('/search', function(req, res) {
   res.render('search', { title: 'search' });
@@ -162,6 +176,11 @@ router.get('/introduction', function(req, res) {
 
 router.get('/nearby_hospitals', function(req, res) {
   res.render('nearby_hospitals', { title: 'nearby_hospitals' });
+});
+
+
+router.get('/msearch', function(req, res) {
+  res.render('msearch', { title: 'msearch' });
 });
 
 

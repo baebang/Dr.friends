@@ -45,17 +45,8 @@ head
     }
     #title_online{
     font-size: 35px;
-    margin-left: 150px;
+    margin:0 0 0 150px;
     font-weight: normal;
-    }
-    #search{
-      text-decoration: none;
-      color: #767171;
-      background-color: #DEEBF7;
-      border-radius: 15px;
-      font-size: 20px;
-      padding: 5px;
-      display: inline-block;
     }
     input[type="text"]{
     width: 650px; height: 40px;
@@ -68,13 +59,17 @@ head
       border-radius: 0 25px 25px 0;
       margin-left: -2px
     }
+    #search{
+      text-decoration: none;
+      color: #767171;
+      background-color: #DEEBF7;
+      border-radius: 15px;
+      font-size: 20px;
+      padding: 5px;
+      display: inline-block;
+    }
     #frm{
       margin: 10px;
-    }
-    input[type="button"]{
-      background-color: #DEEBF7;
-      height: 40px;
-      width: 55px;
     }
 #top
  a(href="http://localhost:3000/" target='_self')
@@ -82,17 +77,13 @@ head
 #title
   h1#title_Dr.Dr Dr.
   h1#title_friends.friends Friends
-  a#search(href="/msearch") medicine
+  a#search(href="/search") symptom
   h3#title_online.online ONLINE
-
-  
 #search_bar
   div#search_bar
-  form#frm(action="/dignosis/search_result", method="get")
-      input(type='text' name="search" placeholder="   궁금하신 질병을 입력해주세요.")
-      input(type='submit' value="search")
-    
-
+  form#frm(action="/dignosis/msearch_result", method="get")
+    input(type='text' name="search" placeholder="   궁금하신 약을 입력해주세요.")
+    input(type='submit' value="search")
 
 
  
