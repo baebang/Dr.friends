@@ -71,29 +71,28 @@ head
     width: 100px;
     border-radius: 10px;
     }
+
 body   
-  #top
-    h2#Dr Dr.
-    h2#friends Friends
-    h5#online ONLINE
-  table
-    tr
-      h2#dignosis_title cold
-    tr
-      img.bar(src='/img_dignosis/bar_right.png')
-    tr
-      td#sympimg
-        img.image(src='/img_dignosis/감기.png')
-      td
-        div#content
-          form#frm(action= "/dignosis/" + part + "/" + ++stage + "/-1", method="get")
-            -if (contents.length == 1)
-              p= contents[0].symptom
-            -else
-              -for (var x = 0; x < contents.length; x++)
-                input(type="radio", name="pre", id= x, value=x)
-                label(for="x")= contents[x].question
-                br
-              input#submit(type="submit", value="다음")
-
-
+#top
+ a(href="http://localhost:3000/" target='_self')
+  img(src='/img_dignosis/홈버튼.png', height='60px')
+#question
+ table
+   tr
+     h2#dignosis_title cold
+   tr
+     img.bar(src='/img_dignosis/bar_right.png')
+   tr
+     td#sympimg
+       img.image(src='/img_dignosis/감기.png')
+     td
+       div#content
+         form#frm(action= "/dignosis/" + part + "/" + ++stage + "/-1", method="get")
+           -if (contents.length == 1)
+             p= contents[0].symptom
+           -else
+             -for (var x = 0; x < contents.length; x++)
+               input(type="radio", name="pre", id= x, value=x)
+               label(for="x")= contents[x].question
+               br
+             input#submit(type="submit", value="다음")
