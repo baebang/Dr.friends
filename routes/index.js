@@ -178,9 +178,17 @@ router.get('/nearby_hospitals', function(req, res) {
   res.render('nearby_hospitals', { title: 'nearby_hospitals' });
 });
 
+router.get('/main_screen', function(req, res) {
+  res.render('main_screen', { title: 'main_screen' });
+});
+
 
 router.get('/msearch', function(req, res) {
   res.render('msearch', { title: 'msearch' });
+});
+
+router.get('/login_check', function(req, res) {
+  res.render('login_check', { title: 'login_check' });
 });
 
 
