@@ -31,10 +31,10 @@ html
       .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
   #top 
     a(href="http://localhost:3000/" target='_self')
-      img(src='img_dignosis/홈버튼.png', height='60px')
-
-
+      img(src='img_dignosis/홈버튼.png', height='60px')   
+      
 body
+
     body(style='margin: 10pt')
       div(style='display:flex;')
         div(style='flex-grow:1; text-align:center;')
@@ -45,10 +45,9 @@ body
             div#hp(onclick=`window.location.href="/nearby_hospitals?type=HP8"`)
               img(src='images/주변병원검색.png' alt='주변병원' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
               h3 주변 병원 확인
-            div(onclick='window.location.href="/dignosis"')
+            div(onclick='window.location.href="/login_check"')
               img(src='images/자가진단서비스.png' alt='주변약국' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
               h3 자가진단서비스
-            
         div(style='flex-grow:9;')
           .map_wrap
             #map(style='width:95%;height:120%;position:relative;overflow:hidden;')

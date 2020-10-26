@@ -1,0 +1,62 @@
+doctype html
+head
+  title login_check
+
+  script.
+    // 로그인이 됬는지 안됬는지 로그인 상태를 리턴해줌
+    var checkLoginStatus = function(response){
+    console.log(response);
+    //statusChangeCallback(response);
+    if(response.status === 'connected'){
+    document.querySelector('#authBtn').value = 'Logout';
+    //로그인시 사용자 이름 표시
+    FB.api('/me', function(resp){
+    document.querySelector("#name").innerHTML = ' Welcome '+resp.name;
+    })
+    }else{
+    document.querySelector('#authBtn').value = 'Login';
+    document.querySelector("#name").innerHTML = ' ';
+    }
+    }
+    
+    // SDK setting
+    window.fbAsyncInit = function() {
+    FB.init({
+    appId      : '622106171816292',
+    cookie     : true,                     // Enable cookies to allow the server to access the session.
+    xfbml      : true,                     // Parse social plugins on this webpage.
+    version    : 'v8.0'           // Use this Graph API version for this call.
+    });
+    FB.getLoginStatus(checkLoginStatus)
+    };
+  // load Facebook SDK
+  script(async='' defer='' crossorigin='anonymous' src='https://connect.facebook.net/en_US/sdk.js')
+
+  input#authBtn(type='button' value='checking...' onclick="if(this.value === 'Login'){FB.login(function(res){console.log('login =>', res);checkLoginStatus(res);});}else{FB.logout(function(res){console.log('logout =>', res);checkLoginStatus(res);});}")
+
+  script.
+    if(document.querySelector('#authBtn').value != 'Login'){
+      alert("로그인 정보 확인중입니다.")
+      if(this.value === 'Login'){
+        FB.login(function(res){
+          console.log('login =>', res);
+          checkLoginStatus(res);});
+      }
+      else{
+        FB.logout(function(res){
+          console.log('logout =>', res);
+          checkLoginStatus(res);
+          });
+      }
+         
+    }
+    else{
+      location.href= window.location.href="/dignosis"
+    }
+
+  script.
+   if(document.querySelector('#authBtn').value != 'Login'){
+     alert("로그인 확인 완료.")
+     location.href= window.location.href="/dignosis"
+   }
+
