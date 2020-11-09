@@ -11,6 +11,16 @@ head
     background-color: #DEEBF7;
     }
     
+    #board{
+    //- 크기 조정 필요
+    width: 10px; 
+    height: 10px; 
+    cursor:pointer;
+    margin-top: 30px;
+    margin-left: 800px;
+    margin-right: 5px;
+    }
+
     #main_img{
     margin-top: 35px;
     margin-bottom: 40px;
@@ -78,6 +88,10 @@ head
  a(href="http://localhost:3000/" target='_self')
   img(src='img_dignosis/홈버튼.png', height='60px')
 
+#board
+ a(href='/board' target='_self')
+  img(src='img_dignosis/게시판.png' onclick='window.location.href="/board"')
+
 input#authBtn(type='button' value='checking...' onclick="if(this.value === 'Login'){FB.login(function(res){console.log('login =>', res);checkLoginStatus(res);});}else{FB.logout(function(res){console.log('logout =>', res);checkLoginStatus(res);});}")
 span#name
 .img
@@ -140,9 +154,7 @@ span#name
             a(href='/introduction' target='_self')
             img(src='img_dignosis/홈페이지소개.png' onclick='window.location.href="/introduction"' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
 
-          td
-            a(href='/board' target='_self')
-            img(src='img_dignosis/홈페이지소개.png' onclick='window.location.href="/board"' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+          
 
         tr
           td &#xC790;&#xAC00;&#xC9C4;&#xB2E8; &#xC11C;&#xBE44;&#xC2A4;
