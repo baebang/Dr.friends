@@ -7,46 +7,50 @@
       margin: 0;
     }
     #top{
+      margin: 0;
+      padding: 0;
       background-color: #DEEBF7;
     }
-    #Dr{
-      padding: 0;
-      margin: 0 0 0 10px;
-      color: #4472C4;
-      font-family: serif;
-      font-weight: normal;
-      display: inline;
+    #board_title{
+      font-weight: bold;
+      margin-left: 30px;
+      margin-bottom: -10px;
     }
-    #friends{
-      color: #4472C4;
-      font-family: serif;
-      display: inline;
+    .image{
+      width: 200px;
+      height: 200px;
+      padding: 50px 30px 0 20px;
     }
-    #online{
-      padding: 0;
-      margin: 0 0 0 45px;
-      color: #767171;
-    }
-    #write{
-        border: 2px solid black;
-        margin-top: 25px;
-        margin-right: 25px;
-        float: right;
-
+    /* 하단바 로드x */
+    /* .bar{
+      height: 2px;
+      width: 50px;
+    } */
+    .figure{
+      width: 700px;
+      height: 650px;
+      padding: 0 30px 30px 10px;
+      margin-top: -250px;
+      margin-left: 400px;
     }
    
   </style>
 </head>
 <body>
   <div id="top">
-    <h2 id="Dr">Dr.</h2>
-    <h2 id="friends">Friends</h2>
-    <h5 id="online">ONLINE</h5>
+    <a href="main_screen.html"><img id="home" src="..\images\홈버튼.png" ></a>
   </div>
+  <table>
+    <tr><h2 id = "board_title">게시판</h2></tr>
+    <!-- <tr><img src="..\images\bar_bottom.png" class="bar"></tr> -->
+    <tr><td><img src="..\images\게시판.png" class="image"></td></tr>
+    <tr>
+      <td><img src="..\images\figure.png" class="figure"></td>
+    </tr>
+  </table>
   <div id="write">
-      글쓰기버튼
-      <a href="public\html\write.html" target="_self"></a>
+    글쓰기
+    <a href="public\html\write.html" target="_self"></a>
   </div>
-  
 </body>
 </html>

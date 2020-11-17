@@ -6,36 +6,46 @@ head
     margin: 0;
     }
     #top{
+    margin: 0;
+    padding: 0;
     background-color: #DEEBF7;
     }
-    #Dr{
-    padding: 0;
-    margin: 0 0 0 10px;
-    color: #4472C4;
-    font-family: serif;
-    font-weight: normal;
-    display: inline;
+    #board_title{
+    font-weight: bold;
+    margin-left: 30px;
+    margin-bottom: -10px;
     }
-    #friends{
-    color: #4472C4;
-    font-family: serif;
-    display: inline;
+    .image{
+    width: 170px;
+    height: 170px;
+    padding: 50px 30px 0 20px;
     }
-    #online{
-    padding: 0;
-    margin: 0 0 0 45px;
-    color: #767171;
+    /* 하단바 로드x */
+    /* .bar{
+    height: 2px;
+    width: 50px;
+    } */
+    .figure{
+    width: 700px;
+    height: 650px;
+    padding: 0 30px 30px 10px;
+    margin-top: -250px;
+    margin-left: 400px;
     }
-    #write{
-    border: 2px solid black;
-    margin-top: 25px;
-    margin-right: 25px;
-    float: right;
-    }
+
 #top
-  h2#Dr Dr.
-  h2#friends Friends
-  h5#online ONLINE
+  a(href='main_screen.html')
+    img#home(src='img_dignosis/홈버튼.png')
+table
+  tr
+    h2#board_title &#xAC8C;&#xC2DC;&#xD310;
+  //- <tr><img src="img_dignosis/bar_bottom.png" class="bar"></tr>
+  tr
+    td
+      img.image(src='img_dignosis/게시판.png')
+  tr
+    td
+      img.figure(src='img_dignosis/figure.png')
 #write
-  | &#xAE00;&#xC4F0;&#xAE30;&#xBC84;&#xD2BC;
-  a(onclick='write()')
+  a(href='/write' target='_self')
+  img(src='img_dignosis/write.png' onclick='window.location.href="/write"' style='width: 100px; height: 30px; margin-left: 690px; margin-top: -50px; cursor:pointer;')
