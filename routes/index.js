@@ -195,4 +195,8 @@ router.get('/write', function(req, res) {
   res.render('write', { title: 'write' });
 });
 
+router.get('/post', function(req, res) {
+  res.render('post', { title: 'post' });
+});
+
 module.exports = router;
