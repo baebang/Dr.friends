@@ -21,17 +21,23 @@
       height: 200px;
       padding: 50px 30px 0 20px;
     }
-    /* 하단바 로드x */
-    /* .bar{
-      height: 2px;
-      width: 50px;
-    } */
     .figure{
       width: 700px;
       height: 650px;
       padding: 0 30px 30px 10px;
       margin-top: -250px;
       margin-left: 400px;
+      position: absolute;
+    }
+    .notice{
+      position: relative;
+      margin-left: 500px;
+    }
+    .notice > h3{
+      font-size: 10px;
+      color: navy;
+      font-weight: bold;
+      margin-bottom: 3px;
     }
    
   </style>
@@ -42,12 +48,19 @@
   </div>
   <table>
     <tr><h2 id = "board_title">게시판</h2></tr>
-    <!-- <tr><img src="..\images\bar_bottom.png" class="bar"></tr> -->
     <tr><td><img src="..\images\게시판.png" class="image"></td></tr>
     <tr>
       <td><img src="..\images\figure.png" class="figure"></td>
     </tr>
   </table>
+  <div class="notice">
+    <h2>고민을 말해보세요!</h3>
+    <ul>
+      <li><a href="#" style="color: black; text-decoration: none">머리가 아파요ㅜㅜ</a></li>
+      <li><a href="#" style="color: black; text-decoration: none">손목이 부었는데 부러진 걸까요...?</a></li>
+      <li><a href="#" style="color: black; text-decoration: none">숙취 해소에 좋은 약 추천좀요,,,</a></li>
+    </ul>
+  </div>
   <div id="write">
     글쓰기
     <a href="public\html\write.html" target="_self"></a>

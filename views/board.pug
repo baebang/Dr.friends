@@ -32,6 +32,20 @@ head
     padding: 0 30px 30px 10px;
     margin-top: -250px;
     margin-left: 400px;
+    position: absolute;
+    }
+    #write{
+    position: relative;
+    }
+    .notice{
+    position: relative;
+    margin-left: 500px;
+    }
+    .notice &gt; h3{
+    font-size: 10px;
+    color: navy;
+    font-weight: bold;
+    margin-bottom: 3px;
     }
 
 #top
@@ -48,6 +62,18 @@ table
   tr
     td
       img.figure(src='img_dignosis/figure.png')
+
+.notice
+  h2
+    | &#xACE0;&#xBBFC;&#xC744; &#xB9D0;&#xD574;&#xBCF4;&#xC138;&#xC694;!
+    ul
+      li
+        a(href='#' style='color: black; text-decoration: none') &#xBA38;&#xB9AC;&#xAC00; &#xC544;&#xD30C;&#xC694;&#x315C;&#x315C;
+      li
+        a(href='#' style='color: black; text-decoration: none') &#xC190;&#xBAA9;&#xC774; &#xBD80;&#xC5C8;&#xB294;&#xB370; &#xBD80;&#xB7EC;&#xC9C4; &#xAC78;&#xAE4C;&#xC694;...?
+      li
+        a(href='#' style='color: black; text-decoration: none') &#xC219;&#xCDE8; &#xD574;&#xC18C;&#xC5D0; &#xC88B;&#xC740; &#xC57D; &#xCD94;&#xCC9C;&#xC880;&#xC694;,,,
+
 #write
   a(href='/write' target='_self')
-  img(src='img_dignosis/write.png' onclick='window.location.href="/write"' style='width: 100px; height: 30px; margin-left: 690px; margin-top: -50px; cursor:pointer;')
+  img(src='img_dignosis/write.png' onclick='window.location.href="/write"' style='width: 100px; height: 30px; margin-bottom: -250px; margin-left: 690px; margin-top: -50px; cursor:pointer;')
