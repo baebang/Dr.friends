@@ -142,13 +142,11 @@ router.get('/dignosis/search_result', function(req, res) {
   var search = req.query.search;
   console.log(search);
   var sql = 'SELECT * from symptom WHERE symptom=?';
-  
  conn.query(sql, search, function(err, rows, fields){
    console.log(rows);
    if(err) console.log('query is not excuted. insert fail...\n' + err);
    else res.render('search_result' , {result : rows});
  })
-
 });
 
 router.get('/dignosis/msearch_result', function(req, res) {

@@ -86,11 +86,11 @@ body
         div#content
           form#frm(action= "/dignosis/" + part + "/" + ++stage + "/-1", method="get")
             -if (contents.length == 1)
-              p= contents[0].symptom
+              p= "🩺 " + contents[0].symptom
             -else
               -for (var x = 0; x < contents.length; x++)
                 input(type="radio", name="pre", id= x, value=x)
-                label(for="x")= contents[x].question
+                label(for=x)= contents[x].question
                 br
               input#submit(type="submit", value="다음")
 

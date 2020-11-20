@@ -81,6 +81,10 @@ head
     #symptom{
       margin-left: 30px;
     }
+    #mimg{
+      width: 300px;
+      height: 200px;
+    }
 
 body   
 #top
@@ -99,6 +103,8 @@ body
         div.contents
           h2 medicine
           p=result[0].name
+          img#mimg(src=result[0].image)
+          p → 대표적인 약💧
       td
         div.contents
           h2 information

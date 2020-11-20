@@ -90,7 +90,7 @@ body
             -else
               -for (var x = 0; x < contents.length; x++)
                 input(type="radio", name="pre", id= x, value=contents[x].question)
-                label(for="x")= contents[x].question
+                label(for=x)= contents[x].question
                 br
               input#submit(type="submit", value="다음")
 
