@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>write</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    #top{
+      margin: 0;
+      padding: 0;
+      background-color: #DEEBF7;
+    }
+    #board_title{
+      font-weight: bold;
+      margin-left: 20px;
+      margin-bottom: -10px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .image{
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      padding: 50px 30px 0 20px;
+    }
+    .bar{
+      width: 230px;
+      height: 2px;
+      margin-left: 15px;
+    }
+    
+    #mini_1{
+      width: 675px;
+      height: 75px;
+      padding: 0 30px 30px 10px;
+      margin-bottom: -120px;
+      margin-left: 200px;
+    }
+    #mini_2{
+      width: 675px;
+      height: 75px;
+      padding: 0 30px 30px 10px;
+      margin-left: 200px;
+      margin-bottom: -80px;
+    }
+    #a, #b{
+      position : relative;
+    }
+    #c{
+      margin-left: 460px;
+      position : relative;
+      /*text-align: center;*/
+    }
+    #title{
+      z-index: 100;
+      position: absolute;
+      color: black;
+      font-size: 25px;
+      top: 55px;
+      left: 250px;
+    }
+    
+    #password{
+      z-index: 100;
+      position: absolute;
+      color: black;
+      font-size: 25px;
+      left: 250px;
+      top: 38px;
+    }
+    .figure{
+      padding: -10px -30px -30px -10px;
+    }
+    #text{
+      z-index: 100;
+      position: absolute;
+      color: black;
+      font-size: 28px;
+      left: 220px;
+      top: 130px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="top">
+    <a href="http://localhost:3000/"><img id="home" src="..\images\홈버튼.png" ></a>
+  </div>
+  <table>
+    <tr><h2 id = "board_title">Bulletin Board</h2></tr>
+    <tr><img src="..\images\bar_right.png" class="bar"></tr>
+  </table>
+  <table>
+    <tr>
+      <td rowspan="2"><img src="..\images\게시판.png" class="image"></td>
+      <td id="a"><img src="..\images\mini_figure.png" id="mini_1">
+      <p id = title><img src="..\images\umm.png" style="margin-bottom: -10px;"><input type="search" size="30" style="border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);
+        " placeholder=" 제목을 입력하세요." onfocus="this.placeholder=''" onblur="this.placeholder=' 제목을 입력하세요.'"></p>
+      </td>
+    </tr>
+    <tr><td id="b"><img src="..\images\mini_figure.png" id="mini_2">
+      <p id = password><img src="..\images\umm.png" style="margin-bottom: -10px;"><input type="search" size="30" style="border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);
+        " placeholder=" 비밀번호를 입력해주세요." onfocus="this.placeholder=''" onblur="this.placeholder=' 비밀번호를 입력해주세요.'"></p>
+    </td></tr>
+  </table>
+  <div id="c">
+    <img src="..\images\figure2.png" class="figure" style="width: 680px; height: 500px;">
+    <p id="text"><img src="..\images\content.png" style="margin-left: 70px"><br><br>
+    <input type="search" size=" " style="border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);
+        " placeholder=" 내용을 작성해주세요." onfocus="this.placeholder=''" onblur="this.placeholder=' 내용을 작성해주세요.'">
+    </p>
+  </div>
+<!--
+  <div id="write"><a href="/post" target="_self"></a><img src="..\images\post.png" onclick="window.location.href=&quot;/write&quot;" style="width: 150px; height: 60px; margin-left: 740px; margin-top: 10px; cursor:pointer;"></div>
+-->
+</body>
+</html>

@@ -6,36 +6,74 @@ head
     margin: 0;
     }
     #top{
+    margin: 0;
+    padding: 0;
     background-color: #DEEBF7;
     }
-    #Dr{
-    padding: 0;
-    margin: 0 0 0 10px;
-    color: #4472C4;
-    font-family: serif;
-    font-weight: normal;
-    display: inline;
+    #board_title{
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: -10px;
+    font-family: Georgia, "Times New Roman", serif;
     }
-    #friends{
-    color: #4472C4;
-    font-family: serif;
-    display: inline;
+    .image{
+    width: 170px;
+    height: 170px;
+    padding: 50px 30px 0 20px;
     }
-    #online{
-    padding: 0;
-    margin: 0 0 0 45px;
-    color: #767171;
+    .bar{
+    width: 230px;
+    height: 2px;
+    margin-left: 15px;
+    }
+    .figure{
+    width: 700px;
+    height: 650px;
+    padding: 0 30px 30px 10px;
+    margin-top: -250px;
+    margin-left: 400px;
+    position: absolute;
     }
     #write{
-    border: 2px solid black;
-    margin-top: 25px;
-    margin-right: 25px;
-    float: right;
+    position: relative;
     }
+    .notice{
+    position: relative;
+    margin-left: 500px;
+    }
+    .notice &gt; h3{
+    font-size: 10px;
+    color: navy;
+    font-weight: bold;
+    margin-bottom: 3px;
+    }
+
 #top
-  h2#Dr Dr.
-  h2#friends Friends
-  h5#online ONLINE
+  a(href='http://localhost:3000/')
+    img#home(src='img_dignosis/홈버튼.png')
+table
+  tr
+    h2#board_title Bulletin Board
+  tr
+    img.bar(src='../images/bar_right.png')
+  tr
+    td
+      img.image(src='img_dignosis/게시판.png')
+  tr
+    td
+      img.figure(src='img_dignosis/figure.png')
+
+.notice
+  h2
+    | &#xACE0;&#xBBFC;&#xC744; &#xB9D0;&#xD574;&#xBCF4;&#xC138;&#xC694;!
+    ul
+      li
+        a(href='#' style='color: black; text-decoration: none') &#xBA38;&#xB9AC;&#xAC00; &#xC544;&#xD30C;&#xC694;&#x315C;&#x315C;
+      li
+        a(href='#' style='color: black; text-decoration: none') &#xC190;&#xBAA9;&#xC774; &#xBD80;&#xC5C8;&#xB294;&#xB370; &#xBD80;&#xB7EC;&#xC9C4; &#xAC78;&#xAE4C;&#xC694;...?
+      li
+        a(href='#' style='color: black; text-decoration: none') &#xC219;&#xCDE8; &#xD574;&#xC18C;&#xC5D0; &#xC88B;&#xC740; &#xC57D; &#xCD94;&#xCC9C;&#xC880;&#xC694;,,,
+
 #write
-  | &#xAE00;&#xC4F0;&#xAE30;&#xBC84;&#xD2BC;
-  a(onclick='write()')
+  a(href='/write' target='_self')
+  img(src='img_dignosis/write.png' onclick='window.location.href="/write"' style='width: 100px; height: 30px; margin-bottom: -250px; margin-left: 690px; margin-top: -50px; cursor:pointer;')

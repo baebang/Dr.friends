@@ -7,46 +7,63 @@
       margin: 0;
     }
     #top{
+      margin: 0;
+      padding: 0;
       background-color: #DEEBF7;
     }
-    #Dr{
-      padding: 0;
-      margin: 0 0 0 10px;
-      color: #4472C4;
-      font-family: serif;
-      font-weight: normal;
-      display: inline;
+    #board_title{
+      font-weight: bold;
+      margin-left: 30px;
+      margin-bottom: -10px;
     }
-    #friends{
-      color: #4472C4;
-      font-family: serif;
-      display: inline;
+    .image{
+      width: 200px;
+      height: 200px;
+      padding: 50px 30px 0 20px;
     }
-    #online{
-      padding: 0;
-      margin: 0 0 0 45px;
-      color: #767171;
+    .figure{
+      width: 700px;
+      height: 650px;
+      padding: 0 30px 30px 10px;
+      margin-top: -250px;
+      margin-left: 400px;
+      position: absolute;
     }
-    #write{
-        border: 2px solid black;
-        margin-top: 25px;
-        margin-right: 25px;
-        float: right;
-
+    .notice{
+      position: relative;
+      margin-left: 500px;
+    }
+    .notice > h3{
+      font-size: 10px;
+      color: navy;
+      font-weight: bold;
+      margin-bottom: 3px;
     }
    
   </style>
 </head>
 <body>
   <div id="top">
-    <h2 id="Dr">Dr.</h2>
-    <h2 id="friends">Friends</h2>
-    <h5 id="online">ONLINE</h5>
+    <a href="main_screen.html"><img id="home" src="..\images\홈버튼.png" ></a>
+  </div>
+  <table>
+    <tr><h2 id = "board_title">게시판</h2></tr>
+    <tr><td><img src="..\images\게시판.png" class="image"></td></tr>
+    <tr>
+      <td><img src="..\images\figure.png" class="figure"></td>
+    </tr>
+  </table>
+  <div class="notice">
+    <h2>고민을 말해보세요!</h3>
+    <ul>
+      <li><a href="#" style="color: black; text-decoration: none">머리가 아파요ㅜㅜ</a></li>
+      <li><a href="#" style="color: black; text-decoration: none">손목이 부었는데 부러진 걸까요...?</a></li>
+      <li><a href="#" style="color: black; text-decoration: none">숙취 해소에 좋은 약 추천좀요,,,</a></li>
+    </ul>
   </div>
   <div id="write">
-      글쓰기버튼
-      <a href="public\html\write.html" target="_self"></a>
+    글쓰기
+    <a href="public\html\write.html" target="_self"></a>
   </div>
-  
 </body>
 </html>
