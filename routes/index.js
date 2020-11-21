@@ -186,7 +186,18 @@ router.get('/login_check', function(req, res) {
 });
 
 router.get('/board', function(req, res) {
-  res.render('board', { title: 'board' });
+ 
+  
+  conn2.query(`SELECT * FROM dashboard`,function(err,dashboard){
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else{
+      console.log(dashboard);
+      res.render('board', { dashboard:dashboard});
+
+
+    }
+    
+  })
 });
 
 router.get('/write', function(req, res) {
