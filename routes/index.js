@@ -186,11 +186,40 @@ router.get('/login_check', function(req, res) {
 });
 
 router.get('/board', function(req, res) {
-  res.render('board', { title: 'board' });
+  var sql = 'SELECT * FROM BOARD';
+  conn.query(sql, function(err, rows, fields){
+    console.log(rows);
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else res.render('board' , {result : rows});
+  })
 });
 
 router.get('/write', function(req, res) {
   res.render('write', { title: 'write' });
+});
+
+router.get('/write/process', function(req, res) {
+  var title = req.query.title;
+  var password = req.query.password;
+  var content = req.query.content;
+  var sql = 'INSERT INTO board (title, pw, content) VALUES (?, ?, ?)';
+  console.log(title);
+  console.log(password);
+  conn.query(sql, [title, password, content], function(err, rows, fields){
+    console.log(rows);
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else res.redirect('/board');
+  })
+});
+
+router.get('/content/:boardid', function(req, res) {
+  var title = req.params.boardid;
+  var sql = 'SELECT * from board WHERE title=?';
+  conn.query(sql, title, function(err, rows, fields){
+    console.log(rows);
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else res.render('content' , {result : rows});
+  })
 });
 
 router.get('/post', function(req, res) {
