@@ -226,8 +226,8 @@ router.get('/content/:boardid', function(req, res) {
   })
 });
 
-router.get('/post', function(req, res) {
-  res.render('post', { title: 'post' });
+router.get('/modify_delete', function(req, res) {
+  res.render('modify_delete', { title: 'modify_delete' });
 });
 
 module.exports = router;
