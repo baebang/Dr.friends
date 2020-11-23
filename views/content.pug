@@ -3,8 +3,17 @@ head
   title write
   script.
     function password(){
-    var password = prompt("비밀번호를 입력해주세요.","password");
-    document.write(password);
+      pw_user="#{result[0].password}"
+      id_user="#{result[0].id}"
+       
+      var password = prompt("비밀번호를 입력해주세요.","password");
+      if(password==pw_user){
+        document.location.replace('http://localhost:3000/modify_delete');
+        
+      }
+      else{
+        alert("비밀번호를 틀리셨습니다.");
+      }
     }
   style.
     body{
