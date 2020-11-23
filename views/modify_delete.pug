@@ -1,6 +1,11 @@
 doctype html
 head
   title modify_delete
+  script.
+    function password(){
+    var password = prompt("비밀번호를 입력해주세요.","password");
+    document.write(password);
+    }
   style.
     body{
     margin: 0;
@@ -103,9 +108,9 @@ table
   table
     tr.btn
       td
-        input(type='submit' value='수정' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+        input(type='submit' value='수정' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
       td
-        input(type='submit' value='삭제' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+        input(type='submit' value='삭제' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
 #c
   img#mini_2(src='../images/mini_figure.png')
   p#comment
