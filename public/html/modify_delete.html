@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
   <title>post</title>
+  <script>
+    function password(){
+    var password = prompt("비밀번호를 입력해주세요.","password");
+    document.write(password);
+    }
+  </script>
   <style>
     body{
       margin: 0;
@@ -84,7 +90,6 @@
     top: 230px;
     left:470px;
 
-
    }
     
   </style>
@@ -108,8 +113,8 @@
       <img src="..\images\figure2.png" class="figure" style="width: 680px; height: 300px;">
       <table>
         <tr class="btn">
-          <td><input type="submit" value="수정" style="border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></td>
-          <td><input type="submit" value="삭제" style="border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></td>
+          <td><input type="submit" value="수정" onclick  =  "password();" style="border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></td>
+          <td><input type="submit" value="삭제" onclick  =  "password();" style="border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></td>
         </tr>
       </table>
     </div>
