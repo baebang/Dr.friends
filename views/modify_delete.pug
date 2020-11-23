@@ -1,0 +1,121 @@
+doctype html
+head
+  title modify_delete
+  style.
+    body{
+    margin: 0;
+    }
+    #top{
+    margin: 0;
+    padding: 0;
+    background-color: #DEEBF7;
+    }
+    #a, #c{
+    position : relative;
+    }
+    #b{
+    margin-left: 460px;
+    margin-top: -105px;
+    position : relative;
+    }
+    #board_title{
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: -10px;
+    font-family: Georgia, "Times New Roman", serif;
+    }
+    .bar{
+    width: 230px;
+    height: 2px;
+    margin-left: 15px;
+    }
+    .image{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    padding: 50px 30px 0 20px;
+    }
+    #title{
+    z-index: 100;
+    position: absolute;
+    color: black;
+    font-size: 25px;
+    top: 55px;
+    left: 250px;
+    }
+    .figure{
+    padding: -10px -30px -30px -10px;
+    position: relative;
+    }
+    #mini_1{
+    width: 675px;
+    height: 75px;
+    padding: 0 30px 30px 10px;
+    /*margin-bottom: -10px;*/
+    margin-left: 200px;
+    }
+    #mini_2{
+    width: 675px;
+    height: 75px;
+    padding: 10px 30px 30px 10px;
+    /*margin-bottom: -10px;*/
+    margin-left: 455px;
+    }
+    #comment{
+    z-index: 100;
+    position: absolute;
+    color: black;
+    font-size: 24px;
+    left: 220px;
+    top: -5px;
+    }
+    #squre{
+    width: 675px;
+    height: 100px;
+    background-color: rgb(214, 224, 242);
+    margin-left: 465px;
+    margin-top: -25px;
+    border-radius: 20px;
+    }
+    .btn{
+    position: absolute;
+    top: 230px;
+    left:470px;
+    }
+#top
+  a(href="http://localhost:3000/" target='_self')
+    img#home(src='img_dignosis/홈버튼.png', height='60px')
+table
+  tr
+    h2#board_title Bulletin Board
+  tr
+    img.bar(src='../images/bar_right.png')
+  tr
+    td(rowspan='2')
+      img.image(src='../images/게시판.png')
+    td#a
+      img#mini_1(src='../images/mini_figure.png')
+      p#title
+        img(src='../images/umm.png')
+      // style="margin-bottom: -10px;"
+#b
+  img.figure(src='../images/figure2.png' style='width: 680px; height: 300px;')
+  table
+    tr.btn
+      td
+        input(type='submit' value='수정' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+      td
+        input(type='submit' value='삭제' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+#c
+  img#mini_2(src='../images/mini_figure.png')
+  p#comment
+    img(src='../images/content2.png' style='margin-left: 290px; width: 125px; height: 50px;')
+#squre
+  table
+    tr
+      td
+        img(src='../images/arrow.png' style='margin-left: 35px;')
+      td
+        input(type='text' size='28px' style='border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);\
+        ' placeholder=' 댓글을 작성해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 댓글을 작성해주세요.'")
+        input(type='submit' value='등록' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
