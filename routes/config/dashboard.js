@@ -10,12 +10,6 @@ var db = {
 };
 
 
-
-// router.get('/board', function(req, res) {
-//     res.render('board', { title: 'board' });
-  
-//   });
-
 module.exports = {
   setdashboard: function () {
       return mysql.createConnection(db);
@@ -23,7 +17,7 @@ module.exports = {
   connect2: function(conn2) {
       conn2.connect(function(err) {
           if(err) console.error('메롱메롱 김재정만 쓸 수 있지롱' + err);
-          else console.log('mysql is connected successfully!');
+          else console.log('재정sql is connected successfully!');
       });
   }
 }

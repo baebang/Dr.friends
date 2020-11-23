@@ -6,7 +6,11 @@ var router = express.Router();
 var db_config = require('./config/database.js');
 var conn = db_config.init();
 
+var board_config = require('./config/dashboard.js');
+var conn2 = board_config.setdashboard();
+
 db_config.connect(conn);
+board_config.connect2(conn2);
 
 
 
@@ -186,8 +190,8 @@ router.get('/login_check', function(req, res) {
 });
 
 router.get('/board', function(req, res) {
-  var sql = 'SELECT * FROM BOARD';
-  conn.query(sql, function(err, rows, fields){
+  var sql = 'SELECT * FROM dashboard';
+  conn2.query(sql, function(err, rows, fields){
     console.log(rows);
     if(err) console.log('query is not excuted. insert fail...\n' + err);
     else res.render('board' , {result : rows});
@@ -202,10 +206,9 @@ router.get('/write/process', function(req, res) {
   var title = req.query.title;
   var password = req.query.password;
   var content = req.query.content;
-  var sql = 'INSERT INTO board (title, pw, content) VALUES (?, ?, ?)';
+  var sql = 'INSERT INTO dashboard (title, password, content, created) VALUES (?, ?, ?, NOW())';
   console.log(title);
-  console.log(password);
-  conn.query(sql, [title, password, content], function(err, rows, fields){
+  conn2.query(sql, [title, password, content], function(err, rows){
     console.log(rows);
     if(err) console.log('query is not excuted. insert fail...\n' + err);
     else res.redirect('/board');
@@ -214,8 +217,9 @@ router.get('/write/process', function(req, res) {
 
 router.get('/content/:boardid', function(req, res) {
   var title = req.params.boardid;
-  var sql = 'SELECT * from board WHERE title=?';
-  conn.query(sql, title, function(err, rows, fields){
+  var sql = 'SELECT * from dashboard WHERE title=?';
+  conn2.query(sql, title, function(err, rows){
+    console.log(title);
     console.log(rows);
     if(err) console.log('query is not excuted. insert fail...\n' + err);
     else res.render('content' , {result : rows});
