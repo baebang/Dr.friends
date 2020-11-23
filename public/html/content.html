@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+  <title>write</title>
+  <script>
+    function password(){
+    var password = prompt("비밀번호를 입력해주세요.","password");
+    document.write(password);
+    }
+  </script>
+  <style>
+    body{
+    margin: 0;
+    }
+    #top{
+    margin: 0;
+    padding: 0;
+    background-color: #DEEBF7;
+    }
+    #board_title{
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: -10px;
+    font-family: Georgia, "Times New Roman", serif;
+    }
+    .image{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    padding: 50px 30px 0 20px;
+    }
+    .bar{
+    width: 230px;
+    height: 2px;
+    margin-left: 15px;
+    }
+    #mini_1{
+    width: 675px;
+    height: 75px;
+    padding: 0 30px 30px 10px;
+    margin-bottom: -120px;
+    margin-left: 200px;
+    }
+    #mini_2{
+    width: 675px;
+    height: 75px;
+    padding: 0 30px 30px 10px;
+    margin-left: 200px;
+    margin-bottom: -80px;
+    }
+    #a, #b{
+    position : relative;
+    }
+    #c{
+    margin-left: 460px;
+    position : relative;
+    /*text-align: center;*/
+    }
+    #title{
+    z-index: 100;
+    position: absolute;
+    color: black;
+    font-size: 25px;
+    top: 55px;
+    left: 250px;
+    }
+    .figure{
+    padding: -10px -30px -30px -10px;
+    }
+    #text{
+      margin-left: 260px;
+      width: 500px;
+      height: 500px;
+      background-color: rgb(214, 224, 242);
+      padding: 30px;
+      border: 0px;
+      border-radius: 40px;
+    }
+    #boardT{
+      background-color: rgb(214, 224, 242);
+      height: 70px;
+      border: 0px;
+      width: 530px;
+      border-radius: 40px;
+      float: left;
+    }
+    #squre{
+      width: 675px;
+      height: 100px;
+      background-color: rgb(214, 224, 242);
+      margin-left: 160px;
+      margin-top: 5px;
+      border-radius: 20px;
+    }
+    #boardtitle{
+      margin-left: 100px;
+    }
+    #list_link{
+      width: 150px;
+      height: 60px;
+      background-color: rgb(214, 224, 242);
+      border: 0px;
+      border-radius: 40px;
+      text-align: center;
+      line-height: 60px;
+      font-size: 18px;
+      color: black;
+      margin-left: 450px;
+      margin-top: 10px;
+    }
+    .btn{
+    position: absolute;
+    top: 250px;
+    left: 800px;
+   }
+    
+    
+  </style>
+</head>
+<div id="top"><a href="http://localhost:3000/"><img id="home" src="../images/홈버튼.png"></a></div>
+<table>
+  <tr>
+    <h2 id="board_title">Bulletin Board</h2>
+  </tr>
+  <tr><img class="bar" src="../images/bar_right.png"></tr>
+</table>
+<form>
+  <table>
+    <tr>
+      <td rowspan="2"><img class="image" id="timage" src="../images/게시판.png"></td>
+      <td id="a">
+        <div id="boardT"><img src="../images/umm.png" style="margin-bottom: -20px; margin-left: 30px; position: absolute; margin-right: 20px;">
+          <div id="boardtitle"></div>
+        </div>
+      </td>
+      <div class="btn">
+        <span><input type="submit" value="수정" onclick  =  "password();" style="border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></span>
+        <span><input type="submit" value="삭제" onclick  =  "password();" style="border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></span>
+      </div>
+    </tr>
+  </table>
+  <div id=squre>
+    <table>
+      <tr>
+        <td><img src="..\images\arrow.png" style="margin-left: 35px;"></td>
+        <td><input type="text" size="28px" style="border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);
+          " placeholder=" 댓글을 작성해주세요." onfocus="this.placeholder=''" onblur="this.placeholder=' 댓글을 작성해주세요.'">
+          <input type="submit" value="등록" style="border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></td>
+      </tr>
+    </table>
+  </div>
+</form>
+<!--             p=result[].title-->
+<!--   div#text-->
+<!--     p=result[0].content
+div#list_link
+  a(href="/board" style="text-decoration: none; color: black;") 목록
+-->
