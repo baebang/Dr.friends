@@ -1,6 +1,11 @@
 doctype html
 head
   title write
+  script.
+    function password(){
+    var password = prompt("비밀번호를 입력해주세요.","password");
+    document.write(password);
+    }
   style.
     body{
     margin: 0;
@@ -93,6 +98,19 @@ head
       margin-left: 450px;
       margin-top: 10px;
     }
+    #squre{
+    width: 675px;
+    height: 100px;
+    background-color: rgb(214, 224, 242);
+    margin-left: 465px;
+    margin-top: 5px;
+    border-radius: 20px;
+    }
+    .btn{
+    position: absolute;
+    top: 230px;
+    left: 1150px;
+    }
 
 
 #top
@@ -113,7 +131,22 @@ form
           img(src='../images/umm.png' style='margin-bottom: -20px; margin-left: 30px; position: absolute; margin-right: 20px;')
           div#boardtitle
             p=result[0].title
+       .btn
+        span
+          input(type='submit' value='수정' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+        span
+          input(type='submit' value='삭제' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
 
+
+ #squre
+  table
+    tr
+      td
+        img(src='../images/arrow.png' style='margin-left: 35px;')
+      td
+        input(type='text' size='28px' style='border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);\
+        ' placeholder=' 댓글을 작성해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 댓글을 작성해주세요.'")
+        input(type='submit' value='등록' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
 
   div#text
     p=result[0].content
