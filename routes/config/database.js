@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 var db_info = {
-    host: 'localhost',
+    host: 'us-cdbr-east-02.cleardb.com',
+    user: 'b5172d3e03b038',
     port: '3306',
-    user: 'root',
-    password: '1234',
-    database: 'symptom'
+    password : '5ac1158b18069b4 ',
+    database : 'heroku_214a7006414301d'
 }
 
 module.exports = {
