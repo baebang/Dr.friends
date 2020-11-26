@@ -1,22 +1,6 @@
 doctype html
 head
   title write
-  script.
-    function password(){
-      pw_user="#{result[0].password}"
-      id_user="#{result[0].id}"
-       
-      var password = prompt("비밀번호를 입력해주세요.","password");
-      if(password==pw_user){
-        
-        window.location.href="/modify_delete";
-        //- ='http://localhost:3000/board';
-        
-      }
-      else{
-        alert("비밀번호를 틀리셨습니다.");
-      }
-    }
   style.
     body{
     margin: 0;
