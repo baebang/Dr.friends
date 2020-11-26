@@ -9,8 +9,7 @@ head
       var password = prompt("비밀번호를 입력해주세요.","password");
       if(password==pw_user){
         
-        window.location.href="/modify_delete";
-        //- ='http://localhost:3000/board';
+        window.location.href="/content_delete/" + result[0].id;
         
       }
       else{
@@ -111,10 +110,9 @@ head
       margin-top: 10px;
     }
     #squre{
-    width: 530px;
-    height: 100px;
+    width: 550px;
     background-color: rgb(214, 224, 242);
-    margin-left: 160px;
+    margin-left: 270px;
     margin-top: 5px;
     border-radius: 20px;
     }
@@ -122,6 +120,18 @@ head
     position: absolute;
     top: 250px;
     left: 800px;
+    }
+    #coment_sb{
+      border: 3px solid black; 
+      background-color: rgb(214, 224, 242);
+      height: 40px;
+      border-radius: 40px;
+    }
+    #coment_list{
+      margin: 10px;
+      text-decoration: none;
+      border-bottom: 2px solid black;
+      margin: 5px;
     }
 
 
@@ -145,9 +155,9 @@ form
             p=result[0].title
       .btn
         span
-          input(type='submit' value='수정' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+          input(type='submit' value='수정' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(214, 224, 242); margin: 3px; padding: 5px 20px;')
         span
-          input(type='submit' value='삭제' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+          input(type='submit' value='삭제' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(214, 224, 242); margin: 3px; padding: 5px 20px;')
   
 npm
 
@@ -161,13 +171,18 @@ npm
         td
           img(src='../images/arrow.png' style='margin-left: 35px;')
         td
-          input(type='text' size='28px' style='border:0px; font-size:20px; 	background-color: rgb(214, 224, 242);\
-          ' placeholder=' 댓글을 작성해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 댓글을 작성해주세요.'")
-          form#frm(action="/dignosis", method="get")
-            input(type='text' name="search" placeholder="   댓글을 작성해주세요.")
-            input(type='submit' value="search")
+          form#frm(action="/coment/" + result[0].id + "/" + result[0].title + "/" + result[0].content + "/" + result[0].password , method="get")
+            input(type='text' name="text" placeholder="   댓글을 작성해주세요." style='border:0px; font-size:20px; 	background-color: rgb(214, 224, 242);')
+            input#coment_sb(type='submit' value="search")
+      tr
+        td
+          ul
+            -if (result.length != 0)
+              -for (var i = 0; i < result.length; i++)
+                 
+                  -if (result[i].coment_content != null)
+                    li#coment_list= result[i].coment_content
 
-  
   div#list_link
     a(href="/board" style="text-decoration: none; color: black;") 목록
   

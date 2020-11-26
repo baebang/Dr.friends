@@ -89,35 +89,26 @@ table
     h2#board_title Bulletin Board
   tr
     img.bar(src='../images/bar_right.png')
-table
-  tr
-    td(rowspan='2')
-      img.image(src='../images/게시판.png')
-    td#a
-      img#mini_1(src='../images/mini_figure.png')
-      p#title
-        img(src='../images/umm.png' style='margin-bottom: -10px;')
-        input(type='search' size='30' style='border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);\
-        ' placeholder=' 제목을 입력하세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 제목을 입력하세요.'")
-    .btn
-      span
-        input(type='submit' value='수정' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
-      span
-        input(type='submit' value='삭제' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
-  tr
-    td#b
-      img#mini_2(src='../images/mini_figure.png')
-      p#password
-        img(src='../images/umm.png' style='margin-bottom: -10px;')
-        input(type='search' size='30' style='border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);\
-        ' placeholder=' 비밀번호를 입력해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 비밀번호를 입력해주세요.'")
-#c
-  img.figure(src='../images/figure2.png' style='width: 680px; height: 500px;')
-  p#text
-    img(src='../images/content.png' style='margin-left: 70px')
-    br
-    br
-    input(type='search' size=' ' style='border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);\
-    ' placeholder=' 내용을 작성해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 내용을 작성해주세요.'")
 
-  <div id="write"><a href="/post" target="_self"></a><img src="..\images\post.png" onclick="window.location.href=&quot;/write&quot;" style="width: 150px; height: 60px; margin-left: 740px; margin-top: 10px; cursor:pointer;"></div>
+form#frm(action="/write/process", method="get")
+  table
+    tr
+      td(rowspan='2')
+        img.image(src='../images/게시판.png')
+      td#a
+        img#mini_1(src='../images/mini_figure.png')
+        p#title
+          img(src='../images/umm.png' style='margin-bottom: -10px;')
+          input(type='text' name="title" size='30' style='border:0px; font-size:25px;    background-color: rgb(214, 224, 242);\
+          ' placeholder=' 제목을 입력하세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 제목을 입력하세요.'")
+    tr
+      td#b
+        img#mini_2(src='../images/mini_figure.png')
+        p#password
+          img(src='../images/umm.png' style='margin-bottom: -10px;')
+          input(type='text' size='30' name="password" style='border:0px; font-size:25px;    background-color: rgb(214, 224, 242);\
+          ' placeholder=' 비밀번호를 입력해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 비밀번호를 입력해주세요.'")
+  #c
+    input(type='text'  style='border-radius: 40px; width: 675px; height: 500px; border:0px; font-size:25px;    background-color: rgb(214, 224, 242);\
+      ' placeholder=' 내용을 작성해주세요.' name="content" onfocus="this.placeholder=''" onblur="this.placeholder=' 내용을 작성해주세요.'")
+  input(type="submit" style='width: 150px; height: 60px; margin-left: 740px; margin-top: 10px; cursor:pointer; border-radius: 30px; background-color: rgb(214, 224, 242); border: 0px; font-size:20px;')

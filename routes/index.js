@@ -193,8 +193,8 @@ router.get('/login_check', function(req, res) {
 });
 
 router.get('/board', function(req, res) {
-  var sql = 'SELECT * FROM dashboard';
-  conn2.query(sql, function(err, rows, fields){
+  var sql = 'SELECT * FROM board';
+  conn.query(sql, function(err, rows, fields){
     console.log(rows);
     if(err) console.log('query is not excuted. insert fail...\n' + err);
     else res.render('board' , {result : rows});
@@ -209,9 +209,9 @@ router.get('/write/process', function(req, res) {
   var title = req.query.title;
   var password = req.query.password;
   var content = req.query.content;
-  var sql = 'INSERT INTO dashboard (title, password, content, created) VALUES (?, ?, ?, NOW())';
+  var sql = 'INSERT INTO board (title, password, content, created) VALUES (?, ?, ?, NOW())';
   console.log(title);
-  conn2.query(sql, [title, password, content], function(err, rows){
+  conn.query(sql, [title, password, content], function(err, rows){
     console.log(rows);
     if(err) console.log('query is not excuted. insert fail...\n' + err);
     else res.redirect('/board');
@@ -220,10 +220,9 @@ router.get('/write/process', function(req, res) {
 
 router.get('/content/:boardid', function(req, res) {
   var title = req.params.boardid;
-  var comment = req.params.boardid;
-  var sql = 'SELECT * from dashboard WHERE title=?';
+  var sql = 'SELECT * from board WHERE title=?';
 
-  conn2.query(sql, title, function(err, rows){
+  conn.query(sql, title, function(err, rows){
     console.log(title);
     console.log(rows);
     if(err) console.log('query is not excuted. insert fail...\n' + err);
@@ -235,15 +234,31 @@ router.get('/modify_delete', function(req, res) {
   res.render('modify_delete', { title: 'modify_delete' });
 });
 
-router.get('/content/comment', function(req, res) {
-  var comment_content = req.query.comment_content;
-  var dashboard_id = req.query.dashboard_id;
-  var sql = 'INSERT INTO dashboard (comment_content, dashboard_id) VALUES (?, ?)';
-  console.log(comment_content);
-  conn3.query(sql, [comment_content, dashboard_id], function(err, rows){
-    console.log(rows);
+
+router.get('/content_delete/:boardid', function(req, res) {
+  var id = req.params.boardid;
+  var sql = 'delete from board where id=? and board_id=?';
+  conn.query(sql, [id, id], function(err, rows, fields){
     if(err) console.log('query is not excuted. insert fail...\n' + err);
     else res.redirect('/board');
+  })
+});
+
+
+router.get('/coment/:boardid/:title/:content/:password', function(req, res) {
+  var coment = req.query.text;
+  var boardid = req.params.boardid;
+  var title = req.params.title;
+  var content = req.params.content;
+  var password = req.params.password;
+
+  console.log(coment);
+  console.log(boardid);
+  var sql = 'INSERT INTO board (title, content, password, created, board_id, coment_content) VALUES (?, ? , ?, now(), ?, ?)';
+
+  conn.query(sql, [title, content, password, boardid, coment], function(err, rows, fields){
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else res.redirect('/content/'+ title);
   })
 });
 

@@ -47,6 +47,16 @@ head
     font-weight: bold;
     margin-bottom: 3px;
     }
+    #created{
+      text-size: 10px;
+      display: inline-block;
+      font-size: 10px;
+    }
+    #contentid{
+      text-decoration: none;
+      color: black;
+      display: inline-block;
+    }
 
 #top
   a(href='http://localhost:3000/')
@@ -70,11 +80,11 @@ table
     ul
     -if (result.length != 0)
       -for (var i = 0; i < result.length; i++)
-       li
-         a(href="/content/"+result[i].title  style="text-decoration: none; color: black;")=result[i].title
-         h3=result[i].created
+        -if (result[i].board_id == null)
+          li
+            a#contentid(href="/content/"+result[i].title  style="text-decoration: none; color: black;")=result[i].title
+            h3#created=result[i].created
          
- 
 
 #write
   div
