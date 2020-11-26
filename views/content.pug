@@ -3,8 +3,19 @@ head
   title write
   script.
     function password(){
-    var password = prompt("비밀번호를 입력해주세요.","password");
-    document.write(password);
+      pw_user="#{result[0].password}"
+      id_user="#{result[0].id}"
+       
+      var password = prompt("비밀번호를 입력해주세요.","password");
+      if(password==pw_user){
+        
+        window.location.href="/modify_delete";
+        //- ='http://localhost:3000/board';
+        
+      }
+      else{
+        alert("비밀번호를 틀리셨습니다.");
+      }
     }
   style.
     body{
@@ -149,7 +160,9 @@ form
         td
           input(type='text' size='28px' style='border:0px; font-size:20px; 	background-color: rgb(214, 224, 242);\
           ' placeholder=' 댓글을 작성해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 댓글을 작성해주세요.'")
-          input(type='submit' value='등록' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 2px; padding: 5px 10px;')
+          form#frm(action="/dignosis", method="get")
+            input(type='text' name="search" placeholder="   댓글을 작성해주세요.")
+            input(type='submit' value="search")
 
   
   div#list_link
