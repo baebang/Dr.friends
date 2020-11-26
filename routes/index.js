@@ -218,6 +218,22 @@ router.get('/write/process', function(req, res) {
   })
 });
 
+router.get('/write/update/:boardid', function(req, res) {
+  var title = req.query.title;
+  var id = req.params.boardid;
+  var password = req.query.password;
+  var content = req.query.content;
+  var sql = 'UPDATE board SET title=?, password=?, content=?, created=now() where id=?';
+  console.log(title);
+  console.log(password);
+  console.log(content);
+  console.log(id);
+  conn.query(sql, [title, password, content, id], function(err, rows){
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else res.redirect('/board');
+  })
+});
+
 router.get('/content/:boardid', function(req, res) {
   var title = req.params.boardid;
   var sql = 'SELECT * from board WHERE title=?';
@@ -230,17 +246,72 @@ router.get('/content/:boardid', function(req, res) {
   })
 });
 
-router.get('/modify_delete', function(req, res) {
-  res.render('modify_delete', { title: 'modify_delete' });
+router.get('/modify', function(req, res) {
+  res.render('modify', { title: 'modify' });
 });
 
 
 router.get('/content_delete/:boardid', function(req, res) {
   var id = req.params.boardid;
-  var sql = 'delete from board where id=? and board_id=?';
+  var sql = 'delete from board where id=? || board_id=?';
   conn.query(sql, [id, id], function(err, rows, fields){
     if(err) console.log('query is not excuted. insert fail...\n' + err);
     else res.redirect('/board');
+  })
+});
+
+router.get('/content_modify/:boardid', function(req, res) {
+  var id = req.params.boardid;
+  var sql = 'select * from board where id=?';
+  conn.query(sql, id, function(err, rows, fields){
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else res.render('write_modify' , {result : rows});
+  })
+});
+
+router.get('/content_check_process_delete/:boardid', function(req, res) {
+  var id = req.params.boardid;
+  console.log(id);
+  res.render('password_delete', {id: id});
+});
+
+router.get('/content_check_process_modify/:boardid', function(req, res) {
+  var id = req.params.boardid;
+  console.log(id);
+  res.render('password_modify', {id: id});
+});
+
+
+router.get('/check_process_modify/:boardid', function(req, res) {
+  var id = req.params.boardid;
+  var pw = req.query.pw;
+  var sql = "SELECT * FROM board where password=? and id=?";
+  console.log(pw); 
+  conn.query(sql, [pw, id], function(err, rows, fields){
+    console.log(rows);
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else 
+      if(rows.length != 0)
+        res.redirect('/content_modify/' + id);
+      else
+        res.render('password_modify' , {wrong: "비밀번호가 틀렸습니다.", id: id});
+  })
+});
+
+
+router.get('/check_process_delete/:boardid', function(req, res) {
+  var id = req.params.boardid;
+  var pw = req.query.pw;
+  var sql = "SELECT * FROM board where password=? and id=?";
+  console.log(pw); 
+  conn.query(sql, [pw, id], function(err, rows, fields){
+    console.log(rows);
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else 
+      if(rows.length != 0)
+        res.redirect('/content_delete/' + id);
+      else
+        res.render('password_delete' , {wrong: "비밀번호가 틀렸습니다.", id: id});
   })
 });
 

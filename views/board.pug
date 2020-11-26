@@ -34,18 +34,13 @@ head
     margin-left: 400px;
     position: absolute;
     }
-    #write{
-    position: relative;
-    }
-    .notice{
-    position: relative;
-    margin-left: 500px;
-    }
-    .notice &gt; h3{
-    font-size: 10px;
-    color: navy;
-    font-weight: bold;
-    margin-bottom: 3px;
+    #notice{
+    background-color: #DEEBF7; 
+    padding: 10px;
+    width: 700px;
+    
+    border-radius:30px;
+
     }
     #created{
       text-size: 10px;
@@ -57,11 +52,29 @@ head
       color: black;
       display: inline-block;
     }
+    #write{
+      background-color: #DEEBF7;
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      width: 100px;
+      height: 40px;
+      border: 2px solid black;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+      border-radius: 40px;
+    }
+    tb{
+      display: inline-block;
+      margin: 0px;
+    }
 
 #top
   a(href='http://localhost:3000/')
     img#home(src='img_dignosis/홈버튼.png')
-table
+
+table#tb
   div
     tr
       h2#board_title Bulletin Board
@@ -70,23 +83,22 @@ table
     tr
       td
         img.image(src='img_dignosis/게시판.png')
-    tr
       td
-        img.figure(src='img_dignosis/figure.png')
+        div#notice
+         h2
+          | &#xACE0;&#xBBFC;&#xC744; &#xB9D0;&#xD574;&#xBCF4;&#xC138;&#xC694;!
+         ul
+           -if (result.length != 0)
+             -for (var i = 0; i < result.length; i++)
+               -if (result[i].board_id == null)
+                 li
+                   a#contentid(href="/content/"+result[i].title  style="text-decoration: none; color: black;")=result[i].title
+                   h3#created=result[i].created   
+           a#write(href='/write' target='_self') 글쓰기
+               
 
-.notice
-  h2
-    | &#xACE0;&#xBBFC;&#xC744; &#xB9D0;&#xD574;&#xBCF4;&#xC138;&#xC694;!
-    ul
-    -if (result.length != 0)
-      -for (var i = 0; i < result.length; i++)
-        -if (result[i].board_id == null)
-          li
-            a#contentid(href="/content/"+result[i].title  style="text-decoration: none; color: black;")=result[i].title
-            h3#created=result[i].created
-         
 
-#write
-  div
-    a(href='/write' target='_self')
-    img(src='img_dignosis/write.png' onclick='window.location.href="/write"' style='width: 100px; height: 30px; margin-bottom: -250px; margin-left: 950px; margin-top: -20px; cursor:pointer;')
+ 
+
+
+  

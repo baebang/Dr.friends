@@ -1,21 +1,6 @@
 doctype html
 head
   title write
-  script.
-    function password(){
-      pw_user="#{result[0].password}"
-      id_user="#{result[0].id}"
-       
-      var password = prompt("비밀번호를 입력해주세요.","password");
-      if(password==pw_user){
-        
-        window.location.href="/content_delete/" + result[0].id;
-        
-      }
-      else{
-        alert("비밀번호를 틀리셨습니다.");
-      }
-    }
   style.
     body{
     margin: 0;
@@ -152,18 +137,22 @@ form
         div#boardT
           img(src='../images/umm.png' style='margin-bottom: -20px; margin-left: 30px; position: absolute; margin-right: 20px;')
           div#boardtitle
-            p=result[0].title
+            -if (result.length != 0)
+              p=result[0].title
+            -else
+             alert("비밀번호가 틀립니다.")
       .btn
-        span
-          input(type='submit' value='수정' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(214, 224, 242); margin: 3px; padding: 5px 20px;')
-        span
-          input(type='submit' value='삭제' onclick='password();' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(214, 224, 242); margin: 3px; padding: 5px 20px;')
-  
-npm
+        -if (result.length != 0)
+         span
+           a(href="/content_check_process_modify/" + result[0].id style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(214, 224, 242); margin: 3px; padding: 5px 20px; text-decoration: none; color: black') 수정
+         span
+           a(href="/content_check_process_delete/" + result[0].id style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(214, 224, 242); margin: 3px; padding: 5px 20px; text-decoration: none; color: black') 삭제
+npm 
 
 
   div#text
-    p=result[0].content
+    -if (result.length != 0)
+      p=result[0].content
   
   #squre
     table
@@ -171,10 +160,11 @@ npm
         td
           img(src='../images/arrow.png' style='margin-left: 35px;')
         td
-          form#frm(action="/coment/" + result[0].id + "/" + result[0].title + "/" + result[0].content + "/" + result[0].password , method="get")
-            input(type='text' name="text" placeholder="   댓글을 작성해주세요." style='border:0px; font-size:20px; 	background-color: rgb(214, 224, 242);')
-            input#coment_sb(type='submit' value="search")
-      tr
+          -if (result.length != 0)
+            form#frm(action="/coment/" + result[0].id + "/" + result[0].title + "/" + result[0].content + "/" + result[0].password , method="get")
+              input(type='text' name="text" placeholder="   댓글을 작성해주세요." style='border:0px; font-size:20px; 	background-color: rgb(214, 224, 242);')
+              input#coment_sb(type='submit' value="search")
+      tr  
         td
           ul
             -if (result.length != 0)

@@ -89,7 +89,7 @@ table
     h2#board_title Bulletin Board
   tr
     img.bar(src='../images/bar_right.png')
-form#frm(action="/write/process", method="get")
+form#frm(action="/write/update/" + result[0].id, method="get")
   table
     tr
       td(rowspan='2')
@@ -99,15 +99,15 @@ form#frm(action="/write/process", method="get")
         p#title
           img(src='../images/umm.png' style='margin-bottom: -10px;')
           input(type='text' name="title" size='30' style='border:0px; font-size:25px;    background-color: rgb(214, 224, 242);\
-          ' placeholder=' 제목을 입력하세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 제목을 입력하세요.'")
+          ' value=result[0].title onfocus="this.placeholder=''" onblur="this.placeholder=' 제목을 입력하세요.'")
     tr
       td#b
         img#mini_2(src='../images/mini_figure.png')
         p#password
           img(src='../images/umm.png' style='margin-bottom: -10px;')
           input(type='text' size='30' name="password" style='border:0px; font-size:25px;    background-color: rgb(214, 224, 242);\
-          ' placeholder=' 비밀번호를 입력해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 비밀번호를 입력해주세요.'")
+          ' value=result[0].password onfocus="this.placeholder=''" onblur="this.placeholder=' 비밀번호를 입력해주세요.'")
   #c
     input(type='text'  style='border-radius: 40px; width: 675px; height: 500px; border:0px; font-size:25px;    background-color: rgb(214, 224, 242);\
-      ' placeholder=' 내용을 작성해주세요.' name="content" onfocus="this.placeholder=''" onblur="this.placeholder=' 내용을 작성해주세요.'")
-  input(type="submit" style='width: 150px; height: 60px; margin-left: 740px; margin-top: 10px; cursor:pointer; border-radius: 30px; background-color: rgb(214, 224, 242); border: 0px; font-size:20px;')
+      ' value=result[0].content name="content" onfocus="this.placeholder=''" onblur="this.placeholder=' 내용을 작성해주세요.'")
+  input(type="submit" value="수정" style='width: 150px; height: 60px; margin-left: 740px; margin-top: 10px; cursor:pointer; border-radius: 30px; background-color: rgb(214, 224, 242); border: 0px; font-size:20px;')
