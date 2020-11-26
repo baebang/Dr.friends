@@ -12,7 +12,7 @@ var db = {
 
 module.exports = {
   setdashboard: function () {
-      return mysql.createConnection(db);
+      return mysql.createConnection('mysql://b5172d3e03b038:5ac1158b18069b4@us-cdbr-east-02.cleardb.com/heroku_214a7006414301d?reconnect=true');
   },
   connect2: function(conn2) {
       conn2.connect(function(err) {

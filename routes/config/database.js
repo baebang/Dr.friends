@@ -9,7 +9,7 @@ var db_info = {
 
 module.exports = {
     init: function () {
-        return mysql.createConnection(db_info);
+        return mysql.createConnection('mysql://b5172d3e03b038:5ac1158b18069b4@us-cdbr-east-02.cleardb.com/heroku_214a7006414301d?reconnect=true');
     },
     connect: function(conn) {
         conn.connect(function(err) {
