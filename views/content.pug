@@ -3,8 +3,19 @@ head
   title write
   script.
     function password(){
-    var password = prompt("비밀번호를 입력해주세요.","password");
-    document.write(password);
+      pw_user="#{result[0].password}"
+      id_user="#{result[0].id}"
+       
+      var password = prompt("비밀번호를 입력해주세요.","password");
+      if(password==pw_user){
+        
+        window.location.href="/modify_delete";
+        //- ='http://localhost:3000/board';
+        
+      }
+      else{
+        alert("비밀번호를 틀리셨습니다.");
+      }
     }
   style.
     body{
@@ -84,6 +95,7 @@ head
     }
     #boardtitle{
       margin-left: 100px;
+      margin-bottom: -50px;
     }
     #list_link{
       width: 150px;
@@ -99,7 +111,7 @@ head
       margin-top: 10px;
     }
     #squre{
-    width: 675px;
+    width: 530px;
     height: 100px;
     background-color: rgb(214, 224, 242);
     margin-left: 160px;
@@ -147,11 +159,13 @@ npm
     table
       tr
         td
-          img(src='..\images\arrow.png' style='margin-left: 35px;')
+          img(src='../images/arrow.png' style='margin-left: 35px;')
         td
-          input(type='text' size='28px' style='border:0px; font-size:25px; 	background-color: rgb(214, 224, 242);\
+          input(type='text' size='28px' style='border:0px; font-size:20px; 	background-color: rgb(214, 224, 242);\
           ' placeholder=' 댓글을 작성해주세요.' onfocus="this.placeholder=''" onblur="this.placeholder=' 댓글을 작성해주세요.'")
-          input(type='submit' value='등록' style='border: 0px; font-size:20px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;')
+          form#frm(action="/dignosis", method="get")
+            input(type='text' name="search" placeholder="   댓글을 작성해주세요.")
+            input(type='submit' value="search")
 
   
   div#list_link

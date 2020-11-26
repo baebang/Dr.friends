@@ -4,13 +4,16 @@ var router = express.Router();
 // var JSAlert = require('js-alert');
 
 var db_config = require('./config/database.js');
-var conn = db_config.init();
-
 var board_config = require('./config/dashboard.js');
+var comment = require('./config/comment.js');
+
+var conn = db_config.init();
 var conn2 = board_config.setdashboard();
+var conn3 = comment.setcomment();
 
 db_config.connect(conn);
 board_config.connect2(conn2);
+comment.connect3(conn3);
 
 
 
@@ -217,7 +220,9 @@ router.get('/write/process', function(req, res) {
 
 router.get('/content/:boardid', function(req, res) {
   var title = req.params.boardid;
+  var comment = req.params.boardid;
   var sql = 'SELECT * from dashboard WHERE title=?';
+
   conn2.query(sql, title, function(err, rows){
     console.log(title);
     console.log(rows);
@@ -228,6 +233,18 @@ router.get('/content/:boardid', function(req, res) {
 
 router.get('/modify_delete', function(req, res) {
   res.render('modify_delete', { title: 'modify_delete' });
+});
+
+router.get('/content/comment', function(req, res) {
+  var comment_content = req.query.comment_content;
+  var dashboard_id = req.query.dashboard_id;
+  var sql = 'INSERT INTO dashboard (comment_content, dashboard_id) VALUES (?, ?)';
+  console.log(comment_content);
+  conn3.query(sql, [comment_content, dashboard_id], function(err, rows){
+    console.log(rows);
+    if(err) console.log('query is not excuted. insert fail...\n' + err);
+    else res.redirect('/board');
+  })
 });
 
 module.exports = router;
