@@ -2,17 +2,17 @@ var mysql     = require('mysql');
 // 비밀번호는 별도의 파일로 분리해서 버전관리에 포함시키지 않아야 합니다. 
 
 var db = {
-  host: 'localhost',
-  user: 'root',
+  host: 'us-cdbr-east-02.cleardb.com',
+  user: 'b5172d3e03b038',
   port: '3306',
-  password : '111111',
-  database : 'dashboard'
+  password : '5ac1158b18069b4 ',
+  database : 'heroku_214a7006414301d'
 };
 
 
 module.exports = {
   setdashboard: function () {
-      return mysql.createConnection(db);
+      return mysql.createConnection('mysql://b5172d3e03b038:5ac1158b18069b4@us-cdbr-east-02.cleardb.com/heroku_214a7006414301d?reconnect=true');
   },
   connect2: function(conn2) {
       conn2.connect(function(err) {
