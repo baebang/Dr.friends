@@ -231,8 +231,8 @@ router.get('/content/:boardid', function(req, res) {
   })
 });
 
-router.get('/modify_delete', function(req, res) {
-  res.render('modify_delete', { title: 'modify_delete' });
+router.get('/modify', function(req, res) {
+  res.render('modify', { title: 'modify' });
 });
 
 router.get('/content/comment', function(req, res) {

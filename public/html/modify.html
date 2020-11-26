@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>modify</title>
+  
+  <style>
+    body{
+      margin: 0;
+    }
+    #top{
+      margin: 0;
+      padding: 0;
+      background-color: #DEEBF7;
+    }
+    #a{
+      position : relative;
+    }
+    #b{
+      margin-left: 460px;
+      margin-top: -105px;
+      position : relative;
+    }
+    #board_title{
+      font-weight: bold;
+      margin-left: 20px;
+      margin-bottom: -10px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .bar{
+      width: 230px;
+      height: 2px;
+      margin-left: 15px;
+    }
+    .image{
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      padding: 50px 30px 0 20px;
+    }
+    #title{
+      z-index: 100;
+      position: absolute;
+      color: black;
+      font-size: 25px;
+      top: 55px;
+      left: 250px;
+    }
+    .figure{
+      padding: -10px -30px -30px -10px;
+      position: relative;
+    }
+    #mini_1{
+      width: 675px;
+      height: 75px;
+      padding: 0 30px 30px 10px;
+      /*margin-bottom: -10px;*/
+      margin-left: 200px;
+    }
+    #mini_2{
+      width: 675px;
+      height: 75px;
+      padding: 10px 30px 30px 10px;
+      /*margin-bottom: -10px;*/
+      margin-left: 455px;
+    }
+    
+   .btn{
+    position: absolute;
+    top: 530px;
+    left:530px;
+
+   }
+    
+  </style>
+</head>
+  <body>
+    <div id="top">
+      <a href="main_screen.html"><img id="home" src="..\images\홈버튼.png" ></a>
+    </div>
+    <table>
+      <tr><h2 id = "board_title">Bulletin Board</h2></tr>
+      <tr><img src="..\images\bar_right.png" class="bar"></tr>
+      <tr>
+        <td rowspan="2"><img src="..\images\게시판.png" class="image"></td>
+        <td id="a"><img src="..\images\mini_figure.png" id="mini_1">
+        <p id = "title"><img src="..\images\umm.png"></p>
+        </td>
+      </tr>
+    </table>
+    <div id="b">
+      <img src="..\images\figure2.png" class="figure" style="width: 680px; height: 600px;">
+      <table>
+        <tr class="btn">
+          <td><input type="submit" value="저장" style="border: 0px; font-size:22px; border-radius: 5px; background-color: rgb(182, 200, 232); margin: 3px; padding: 5px 20px;"></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
