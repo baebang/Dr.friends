@@ -10,6 +10,26 @@ head
     padding: 0;
     background-color: #DEEBF7;
     }
+    #Dr{
+    padding: 0;
+    margin: 0 0 0 10px;
+    color: #4472C4;
+    font-family: serif;
+    font-size: 30px;
+    display: inline;
+    }
+    #friends{
+    color: #4472C4;
+    font-family: serif;
+    display: inline;
+    font-size: 30px;
+    }
+    #online{
+    padding: 0;
+    margin: 0 0 0 45px;
+    color: #767171;
+    font-size: 20px;
+    }
     #board_title{
     font-weight: bold;
     margin-left: 20px;
@@ -121,8 +141,10 @@ head
 
 
 #top
-  a(href="/")
-    img#home(src='../images/홈버튼.png')
+  a(href='/' target='_self' style='text-decoration: none')
+    h2#Dr Dr.
+    h2#friends Friends
+    h5#online ONLINE
 table
   tr
     h2#board_title Bulletin Board

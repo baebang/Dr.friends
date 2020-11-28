@@ -14,6 +14,26 @@
     }
     #Dr{
       padding: 0;
+      margin: 0 0 0 10px;
+      color: #4472C4;
+      font-family: serif;
+      font-size: 30px;
+      display: inline;
+    }
+    #friends{
+      color: #4472C4;
+      font-family: serif;
+      display: inline;
+      font-size: 30px;
+    }
+    #online{
+      padding: 0;
+      margin: 0 0 0 45px;
+      color: #767171;
+      font-size: 20px;
+    }
+    /* #Dr{
+      padding: 0;
       margin-top: 0;
       margin-bottom: 0;
       margin-right: 0;
@@ -28,7 +48,7 @@
       margin-right: 0;
       margin-left: 45px;
       color: #767171;
-    }
+    } */
     #main_img{
       margin-top: 35px;
       margin-bottom: 40px;
@@ -99,8 +119,15 @@
 </head>
 <body>
   <div id="top">
-    <a href="main_screen.html"><img id="home" src="..\images\홈버튼.png" ></a>
+    <a href="main_screen.html" style="text-decoration: none;">
+      <h2 id="Dr">Dr.</h2>
+      <h2 id="friends">Friends</h2>
+      <h5 id="online">ONLINE</h5>
+    </a>
   </div>
+  <!-- <div id="top">
+    <a href="main_screen.html"><img id="home" src="..\images\홈버튼.png" ></a>
+  </div> -->
   <div id="board">
     <a href="board.html"><img id="board" src="..\images\게시판.png" ></a>
   </div>

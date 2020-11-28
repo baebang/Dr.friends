@@ -6,6 +6,7 @@ html
       body{
       margin: 0;
       padding-top: 80pt;
+      padding-bottom: 80pt;
       position: relative;
       }
       
@@ -14,6 +15,27 @@ html
       left: 0; top:0; right:0;
       height: 60px;
       background-color: #DEEBF7;
+      }
+
+      #Dr{
+      padding: 0;
+      margin: -100px 0 100px 10px;
+      color: #4472C4;
+      font-family: serif;
+      font-size: 30px;
+      display: inline;
+      }
+      #friends{
+      color: #4472C4;
+      font-family: serif;
+      display: inline;
+      font-size: 30px;
+      }
+      #online{
+      padding: 0;
+      margin: 0 0 0 45px;
+      color: #767171;
+      font-size: 20px;
       }
 
 
@@ -29,24 +51,27 @@ html
       .placeinfo .title {font-weight: bold; font-size:14px;border-radius: 6px 6px 0 0;margin: -1px -1px 0 -1px;padding:10px; color: #fff;background: #003366;background: #003366 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
       .placeinfo .tel {color:#0f7833;}
       .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
-  #top 
-    a(href="/" target='_self')
-      img(src='img_dignosis/홈버튼.png', height='60px')   
+   
   
 body
+ #top
+  a(href='/' target='_self' style='text-decoration: none')
+    h2#Dr Dr.
+    h2#friends Friends
+    h5#online ONLINE 
 
     body(style='margin: 10pt')
       div(style='display:flex;')
         div(style='flex-grow:1; text-align:center;')
           div(style='display:flex; flex-direction:column;')
             div#pm(onclick=`window.location.href="/nearby_hospitals?type=PM9"`)
-              img(src='images/주변병원검색.png' alt='주변약국' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
+              img(src='images/주변병원검색.png' alt='주변약국' style='width: 130px; height: 130px; margin-top: 50px; padding: 10px; cursor:pointer;')
               h3 주변 약국 확인
             div#hp(onclick=`window.location.href="/nearby_hospitals?type=HP8"`)
-              img(src='images/주변병원검색.png' alt='주변병원' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
+              img(src='images/주변병원검색.png' alt='주변병원' style='width: 130px; height: 130px; margin-top: 50px; padding: 10px; cursor:pointer;')
               h3 주변 병원 확인
             div(onclick='window.location.href="/login_check"')
-              img(src='images/자가진단서비스.png' alt='주변약국' style='width: 130px; height: 130px; padding: 10px; cursor:pointer;')
+              img(src='images/자가진단서비스.png' alt='주변약국' style='width: 130px; height: 130px; margin-top: 50px; padding: 10px; cursor:pointer;')
               h3 자가진단서비스
         div(style='flex-grow:9;')
           .map_wrap
