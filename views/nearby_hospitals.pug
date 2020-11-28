@@ -52,26 +52,25 @@ html
       .placeinfo .tel {color:#0f7833;}
       .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
    
-  
-body
- #top
+#top
   a(href='/' target='_self' style='text-decoration: none')
     h2#Dr Dr.
     h2#friends Friends
-    h5#online ONLINE 
+    h5#online ONLINE  
 
+body
     body(style='margin: 10pt')
       div(style='display:flex;')
         div(style='flex-grow:1; text-align:center;')
           div(style='display:flex; flex-direction:column;')
             div#pm(onclick=`window.location.href="/nearby_hospitals?type=PM9"`)
-              img(src='images/주변병원검색.png' alt='주변약국' style='width: 130px; height: 130px; margin-top: 50px; padding: 10px; cursor:pointer;')
+              img(src='images/주변병원검색.png' alt='주변약국' style='width: 130px; height: 130px; margin-top: 20px; padding: 10px; cursor:pointer;')
               h3 주변 약국 확인
             div#hp(onclick=`window.location.href="/nearby_hospitals?type=HP8"`)
-              img(src='images/주변병원검색.png' alt='주변병원' style='width: 130px; height: 130px; margin-top: 50px; padding: 10px; cursor:pointer;')
+              img(src='images/주변병원검색.png' alt='주변병원' style='width: 130px; height: 130px; margin-top: 20px; padding: 10px; cursor:pointer;')
               h3 주변 병원 확인
             div(onclick='window.location.href="/login_check"')
-              img(src='images/자가진단서비스.png' alt='주변약국' style='width: 130px; height: 130px; margin-top: 50px; padding: 10px; cursor:pointer;')
+              img(src='images/자가진단서비스.png' alt='주변약국' style='width: 130px; height: 130px; margin-top: 20px; padding: 10px; cursor:pointer;')
               h3 자가진단서비스
         div(style='flex-grow:9;')
           .map_wrap
