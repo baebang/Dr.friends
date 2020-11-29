@@ -12,7 +12,26 @@ head
     padding: 0;
     background-color: #DEEBF7;
     }
-  
+    #Dr{
+    padding: 0;
+    margin: 0 0 0 10px;
+    color: #4472C4;
+    font-family: serif;
+    font-size: 30px;
+    display: inline;
+    }
+    #friends{
+    color: #4472C4;
+    font-family: serif;
+    display: inline;
+    font-size: 30px;
+    }
+    #online{
+    padding: 0;
+    margin: 0 0 0 45px;
+    color: #767171;
+    font-size: 20px;
+    }
     #main_img{
     margin-top: 35px;
     margin-bottom: 40px;
@@ -87,8 +106,11 @@ head
   script(async='' defer='' crossorigin='anonymous' src='https://connect.facebook.net/en_US/sdk.js')
   
 #top
- a(href="/" target='_self')
-  img(src='img_dignosis/홈버튼.png', height='60px')
+  a(href='/' target='_self' style='text-decoration: none')
+    h2#Dr Dr.
+    h2#friends Friends
+    h5#online ONLINE
+
 
 #board
  a(href='/board' target='_self')
@@ -145,7 +167,7 @@ span#name
             //- }
 
           td
-            img(src='img_dignosis/자가진단서비스.png' onclick='window.location.href="/dignosis"' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
+            img(src='img_dignosis/자가진단서비스.png' onclick='login_check_dignosis()' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
           td
             a(href='/search' target='_self')
             img(src='img_dignosis/질병검색하기.png' onclick='window.location.href="/search"' style='width: 150px; height: 150px; padding: 10px; cursor:pointer;')
