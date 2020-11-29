@@ -20,5 +20,9 @@ module.exports = {
           if(err) console.error('답글메롱메롱 김재정만 쓸 수 있지롱' + err);
           else console.log('재정답글sql is connected successfully!');
       });
+
+      conn3.on('error', function(err) {
+        console.log(err.code)
+     })
   }
 }
